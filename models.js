@@ -22,12 +22,45 @@ User.init({
   sequelize,
   modelName: 'user'
 })
-// User.username.unique = true;
-// User.hasMany(Post, { onDelete: 'cascade' });
-// Post.belongsTo(User);
+
+class GiftList extends Sequelize.Model { }
+
+GiftList.init({
+  title: Sequelize.STRING,
+  description: Sequelize.STRING,
+  image_link: Sequelize.TEXT,
+  due_date: Sequelize.DATE
+},
+  {
+    sequelize,
+    modelName: 'giftlist'
+  })
+class Gift extends Sequelize.Model { }
+
+Gift.init({
+  item: Sequelize.STRING,
+  description: Sequelize.TEXT,
+  image_link: Sequelize.TEXT,
+  price: Sequelize.DECIMAL,
+  location: Sequelize.TEXT,
+  proposed_purchase_date: Sequelize.DATE,
+  actual_purchase_date: Sequelize.DATE
+},
+  {
+    sequelize,
+    modelName: 'gift'
+  })
+
+
+User.hasMany(GiftList, { onDelete: 'cascade' });
+GiftList.belongsTo(User);
+GiftList.hasMany(Gift, { onDelete: 'cascade' });
+Gift.belongsTo(GiftList);
 
 
 module.exports = {
   User,
+  GiftList,
+  Gift,
   sequelize
 }
