@@ -1,4 +1,6 @@
-# GiftBox ![](https://i.imgur.com/WpcQKwk.jpg)
+
+# GiftBox ![](https://github.com/angt08/project3/blob/dev/IMG_20191108_100803.jpg)
+
 
 #### Buying a gift for friends, family memebers, partners, etc.. can be confusing especially if you're having a hard time remembering what you bought. 
 
@@ -60,14 +62,16 @@
 #### Gift
 
 ## ERD
-![](https://i.imgur.com/tP8BAzy.png)
+
+![](https://github.com/angt08/project3/blob/dev/Screen%20Shot%202019-11-08%20at%209.33.16%20AM.png)
 
 ## WireFrame
 
-![](https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2Flylha3V.jpg)
+![](shot1.jpg)
 
-![]()
+![](shot2.jpg)
 
-![](/Users/winstonmeikle/Dowhttps://i.imgur.com/jrAK2KQ.jpgnloads/shot3.jpg)
+![](https://github.com/angt08/project3/blob/dev/shot3.jpg)
 
-![](/Users/winstonmeikle/Downloads/P3_wireframe.jpg)
+
+
