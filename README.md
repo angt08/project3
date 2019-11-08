@@ -66,7 +66,7 @@
 
 ![](shot1.jpg)
 
-![](/Users/winstonmeikle/Downloads/shot2.jpg)
+![](shot2.jpg)
 
 ![](/Users/winstonmeikle/Downloads/shot3.jpg)
 
