@@ -64,7 +64,7 @@
 
 ## WireFrame
 
-![](/Users/winstonmeikle/Downloads/shot1 copy.jpg)
+![](shot1.jpg)
 
 ![](/Users/winstonmeikle/Downloads/shot2.jpg)
 
