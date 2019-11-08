@@ -60,7 +60,7 @@
 #### Gift
 
 ## ERD
-![](/Users/winstonmeikle/Downloads/Screen Shot 2019-11-08 at 9.33.16 AM.png)
+![](https://github.com/angt08/project3/blob/dev/Screen%20Shot%202019-11-08%20at%209.33.16%20AM.png)
 
 ## WireFrame
 
