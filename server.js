@@ -2,6 +2,7 @@ const express = require('express');
 const PORT = process.env.PORT || 3001;
 const giftlistRouter = require('./routes/giftlistRouter')
 const GiftsRouter = require('./routes/GiftsRouter')
+const userRouter = require('./routes/userRouter')
 
 const cors = require('cors')
 const bodyParser = require('body-parser');

@@ -25,7 +25,7 @@ giftListRouter.get("/:id", async (req, res) => {
 
 // create new giftlist 
 giftListRouter.post("/", async (req, res) => {
-  const giftlist = req.body
+  const data = req.body
   const userId = req.params.userId
   const user = await User.findByPk(userId)
   const giftlist = await GiftList.create(data)
