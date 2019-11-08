@@ -2,7 +2,7 @@
   "development": {
     "username": "express",
     "password": "express",
-    "database": "security_db",
+    "database": "giftbox_db",
     "host": "localhost",
     "dialect": "postgres",
     "operatorsAliases": false
