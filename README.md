@@ -68,6 +68,6 @@
 
 ![](shot2.jpg)
 
-![](/Users/winstonmeikle/Downloads/shot3.jpg)
+![](https://github.com/angt08/project3/blob/dev/shot3.jpg
 
-![](/Users/winstonmeikle/Downloads/P3_wireframe.jpg)
+
