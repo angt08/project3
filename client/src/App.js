@@ -8,19 +8,15 @@ import Home from './components/Home';
 import About from './components/About';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import { registerUser, loginUser, verifyUser } from './services/api-helper';
+import GiftListDetails from './components/GiftListDetails';
+import CreateGiftListForm from './components/CreateGiftListForm';
+import { registerUser, loginUser, verifyUser, getGiftListsByUser } from './services/api-helper';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      something: [],
-
-    }
-  }
   state = {
     currentUser: null,
-    authErrorMessage: ""
+    authErrorMessage: "",
+    giftLists: []
   }
   handleLogin = async (loginData) => {
     const currentUser = await loginUser(loginData);
@@ -51,8 +47,19 @@ class App extends React.Component {
     if (currentUser)
       this.setState({ currentUser });
   }
-  componentDidMount = () => {
-    this.handleVerify();
+  getGiftLists = async () => {
+    if (this.state.currentUser) {
+      const giftLists = await getGiftListsByUser(this.state.currentUser.id);
+      this.setState({ giftLists })
+      console.log(`GiftLists=${giftLists}`);
+    }
+    else {
+      this.setState({ giftLists: [] })
+    }
+  }
+  componentDidMount = async () => {
+    await this.handleVerify();
+    await this.getGiftLists();
   }
 
   render() {
@@ -65,6 +72,7 @@ class App extends React.Component {
           <Home
             currentUser={currentUser}
             handleLogout={this.handleLogout}
+            giftLists={this.state.giftLists}
           />)} />
         <Route path="/about" render={() => (<About />)} />
         <Route path="/login" render={() => (
@@ -77,6 +85,19 @@ class App extends React.Component {
           <RegisterForm
             handleRegister={this.handleRegister}
             authErrorMessage={this.state.authErrorMessage}
+          />
+        )} />
+        <Route exact path='/giftLists/:id' render={(props) => {
+          const id = props.match.params.id;
+          const currentGiftList = this.state.giftLists.find(gl => {
+            return gl.id === parseInt(id)
+          })
+          return <GiftListDetails
+            currentGiftList={currentGiftList}
+          />
+        }} />
+        <Route path='/giftLists/new' render={() => (
+          <CreateGiftListForm
           />
         )} />
         <Footer />

@@ -31,7 +31,19 @@ export const verifyUser = async () => {
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`;
     const resp = await api.get('/auth/verify');
+    console.log(resp.data);
     return resp.data;
   }
   return false;
+}
+/////////GiftList//////////////
+// Get All Gift Lists for a logged in user
+export const getGiftListsByUser = async (userId) => {
+  try {
+    const resp = await api.get(`/giftlists/${userId}/`);
+    return resp.data.giftlists;
+  }
+  catch (err) {
+    return { error: "Unable to retrieve gift lists" }
+  }
 }

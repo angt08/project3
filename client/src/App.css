@@ -44,6 +44,7 @@ header h1{
   flex: 1 1 auto;
   position: relative;
   display: flex;
+  flex-direction: column;
 }
 form{
   flex: 1 1 auto;

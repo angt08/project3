@@ -8,7 +8,7 @@ export default function Footer(props) {
       <a href="https://github.com/angt08/project3">
         <img className='image-footer' src={gitHub} border="0" alt="" />
       </a>
-      <p id='copyright'>Team 404-Calm Cown 2019</p>
+      <p id='copyright'>Space Dinos 2019</p>
     </footer>
   )
 }

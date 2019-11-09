@@ -26,7 +26,7 @@ app.use((err, req, res, next) => {
 // Routers handler
 
 app.use('/giftlists', giftlistRouter);
-app.use('/giftlists/:giftListId/gifts/', GiftsRouter);
+app.use('/giftlists/:giftListId/gifts', GiftsRouter);
 app.use('/users/:userId/giftlists', giftlistRouter);
 
 
