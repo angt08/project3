@@ -37,7 +37,7 @@ export default function CreateGiftListForm(props) {
         <br />
         <label htmlFor="due_date">due_date</label>
         <input
-          type="text"
+          type="date"
           name="due_date"
           id="due_date"
           value={props.giftListFormData.due_date}

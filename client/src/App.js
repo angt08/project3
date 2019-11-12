@@ -84,9 +84,11 @@ class App extends React.Component {
 
   /// Create Gift List /////////////
   createGiftList = async (userId) => {
-    await postGiftList(userId, this.state.giftListFormData);
+    const newGiftLists = await postGiftList(userId, this.state.giftListFormData);
+    this.setState(prevState => ({
+      giftLists: [...prevState.giftLists, newGiftLists]
+    }))
     this.props.history.push('./')
-    // this.props.history.push(`/users/${userId}/giftlists/`)
   }
   /////////////////////////////////
 
@@ -104,17 +106,21 @@ class App extends React.Component {
           currentUser={currentUser}
           handleLogout={this.handleLogout}
         />
+
         <Route exact path="/" render={() => (
           <Home
             giftLists={this.state.giftLists}
           />)} />
+        
         <Route path="/about" render={() => (<About />)} />
+
         <Route path="/login" render={() => (
           <LoginForm
             handleLogin={this.handleLogin}
             authErrorMessage={this.state.authErrorMessage}
           />
         )} />
+        
         <Route path="/register" render={() => (
           <RegisterForm
             handleRegister={this.handleRegister}
