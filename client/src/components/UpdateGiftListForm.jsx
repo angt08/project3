@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
 
+
+export default function UpdateGiftListForm() {
+  return (
+    <div>
+     
+    </div>
+  )
+
 export default class UpdateGiftListForm extends Component {
   state = {
     title: "",
@@ -93,4 +101,5 @@ export default class UpdateGiftListForm extends Component {
       </div>
     )
   }
+
 }

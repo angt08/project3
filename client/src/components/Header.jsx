@@ -12,6 +12,7 @@ export default function Header(props) {
             :
             <></>
         }
+        
         <Link to="/">Home</Link>
         {
           props.currentUser ?
