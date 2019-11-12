@@ -1,6 +1,6 @@
 const express = require('express');
 const PORT = process.env.PORT || 3001;
-const giftlistRouter = require('./routes/giftlistRouter')
+const giftlistRouter = require('./routes/giftListRouter')
 const GiftsRouter = require('./routes/GiftsRouter')
 const userRouter = require('./routes/userRouter')
 
@@ -33,4 +33,3 @@ app.use('/users/:userId/giftlists', giftlistRouter);
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
-
