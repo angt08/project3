@@ -6,8 +6,19 @@ export default function Header(props) {
     <header>
       <h1>GiftBox</h1>
       <nav>
+        {
+          props.currentUser ?
+            <p>Welcome, {props.currentUser.username}</p>
+            :
+            <></>
+        }
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+        {
+          props.currentUser ?
+            <a href="#" onClick={props.handleLogout}>Logout</a>
+            :
+            <Link to="/login">Login</Link>
+        }
         <Link to="/about">About</Link>
       </nav>
     </header>

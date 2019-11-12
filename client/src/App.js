@@ -25,6 +25,7 @@ class App extends React.Component {
     }
     else {
       this.setState({ currentUser });
+      await this.getGiftLists();
       this.props.history.push('./');
     }
   }
@@ -41,6 +42,11 @@ class App extends React.Component {
   handleLogout = () => {
     this.setState({ currentUser: null });
     localStorage.removeItem('authToken');
+    this.setState({
+      currentUser: null,
+      authErrorMessage: "",
+      giftLists: []
+    });
   }
   handleVerify = async () => {
     const currentUser = await verifyUser();
@@ -51,13 +57,13 @@ class App extends React.Component {
     if (this.state.currentUser) {
       const giftLists = await getGiftListsByUser(this.state.currentUser.id);
       this.setState({ giftLists })
-      console.log(`GiftLists=${giftLists}`);
     }
     else {
       this.setState({ giftLists: [] })
     }
   }
   componentDidMount = async () => {
+    console.log("component did mount ran.");
     await this.handleVerify();
     await this.getGiftLists();
   }
@@ -67,11 +73,11 @@ class App extends React.Component {
     return (
       <div className="app" >
         <Header
-          currentUser={currentUser} />
+          currentUser={currentUser}
+          handleLogout={this.handleLogout}
+        />
         <Route exact path="/" render={() => (
           <Home
-            currentUser={currentUser}
-            handleLogout={this.handleLogout}
             giftLists={this.state.giftLists}
           />)} />
         <Route path="/about" render={() => (<About />)} />
