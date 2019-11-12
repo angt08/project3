@@ -4,6 +4,7 @@ export default function CreateGiftListForm(props) {
   console.log(props)
   return (
     <div>
+
       <form onSubmit={(e) => {
         e.preventDefault();
         props.createGiftList(props.currentUser.id, props.giftListFormData);
@@ -16,7 +17,8 @@ export default function CreateGiftListForm(props) {
           value={props.giftListFormData.title}
           onChange={props.handleChange}
         />
-        <br />
+
+        {/* <br /> */}
         <label htmlFor="description">description</label>
         <input
           type="text"
@@ -25,7 +27,7 @@ export default function CreateGiftListForm(props) {
           value={props.giftListFormData.description}
           onChange={props.handleChange}
         />
-        <br />
+        {/* <br /> */}
         <label htmlFor="image_link">image_link</label>
         <input
           type="text"
@@ -34,7 +36,7 @@ export default function CreateGiftListForm(props) {
           value={props.giftListFormData.image_link}
           onChange={props.handleChange}
         />
-        <br />
+        {/* <br /> */}
         <label htmlFor="due_date">due_date</label>
         <input
           type="date"
@@ -43,8 +45,9 @@ export default function CreateGiftListForm(props) {
           value={props.giftListFormData.due_date}
           onChange={props.handleChange}
         />
-        <br />
+        {/* <br /> */}
         <button>Submit</button>
+
       </form>
     </div>
   )

@@ -94,4 +94,5 @@ export default class UpdateGiftListForm extends Component {
       </div>
     )
   }
+
 }
