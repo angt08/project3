@@ -5,7 +5,7 @@ export default function Home(props) {
 
   return (
     <main className="main">
-      <Link to="/giftlists/new"><button>Add an Giftlist</button></Link>
+      <Link to="/create_giftLists"><button>Add an Giftlist</button></Link>
       {props.giftLists.map(gl => (
         <div>
           <Link to={`/giftlists/${gl.id}`}><h3>{gl.title}</h3></Link>
