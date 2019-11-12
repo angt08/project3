@@ -71,6 +71,35 @@ footer {
   text-align: center;
   color: black;
 }
+.gift-image{
+  width: 100px;
+  height: 100px;
+}
+#gift-list-details{
+  display: flex;
+  flex-direction: column;
+}
+#gift-list-details div{
+padding-left: 20px;
+}
+#gift-list-details h1{
+  text-align: center;
+}
+#giftlist{
+  display: flex;
+}
+.gift{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  width: 300px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+#gifts {
+  display: flex;
+}
 @media only screen 
   and (max-width: 500px){
    
