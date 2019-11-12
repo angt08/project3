@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 
 
-  export default class UpdateGiftListForm extends Component {
+export default class UpdateGiftListForm extends Component {
     state = {
       title: "",
       image_link: "",
@@ -95,5 +95,5 @@ import React, { Component } from 'react'
         </div>
       )
     }
-  }
+}
 
