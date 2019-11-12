@@ -8,6 +8,7 @@ const main = async () => {
   await GiftList.destroy({
     where: {}
   });
+
   const user = await User.findByPk(1);
 
   const gl1 = await GiftList.create({
