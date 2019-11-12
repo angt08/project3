@@ -67,4 +67,8 @@ export const putGiftList = async (id, giftListData) => {
   const resp = await api.put(`/giftlists/${id}`, giftListData)
   return resp.data.giftlist
 }
-
+////// delete GIFT LIST ////
+export const deleteGiftList = async (id) => {
+  const resp = await api.delete(`/giftlists/${id}`);
+  return resp.data;
+}

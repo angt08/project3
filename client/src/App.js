@@ -5,13 +5,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Route, withRouter } from 'react-router-dom';
 import Home from './components/Home';
-import About from './components/About';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import GiftListDetails from './components/GiftListDetails';
 import CreateGiftListForm from './components/CreateGiftListForm';
 import UpdateGiftListForm from './components/UpdateGiftListForm';
-import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList, putGiftList } from './services/api-helper';
+import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList, putGiftList, deleteGiftList } from './services/api-helper';
 
 class App extends React.Component {
   state = {
@@ -92,12 +91,21 @@ class App extends React.Component {
     this.props.history.push('./')
   }
   /////////////////////////////////
-  updateGiftList = async (id) => {
-    const newGiftLists = await putGiftList(id, this.state.giftListFormData);
+  updateGiftList = async (id, giftlist) => {
+    const newGiftLists = await putGiftList(id, giftlist);
     this.setState(prevState => ({
       giftLists: [...prevState.giftLists, newGiftLists]
     }))
-    this.props.history.push('./')
+    this.props.history.push('../')
+  }
+  deleteGiftList = async (id) => {
+    const ret = await deleteGiftList(id);
+    this.setState(prevState => ({
+      giftLists: prevState.giftLists.filter(giftList => {
+        return giftList.id !== id
+      })
+    }))
+    this.props.history.push('../')
   }
   componentDidMount = async () => {
     console.log("component did mount ran.");
@@ -119,8 +127,6 @@ class App extends React.Component {
             giftLists={this.state.giftLists}
           />)} />
 
-        <Route path="/about" render={() => (<About />)} />
-
         <Route path="/login" render={() => (
           <LoginForm
             handleLogin={this.handleLogin}
@@ -141,6 +147,7 @@ class App extends React.Component {
           })
           return <GiftListDetails
             currentGiftList={currentGiftList}
+            deleteGiftList={this.deleteGiftList}
           />
         }} />
         <Route path='/create_giftLists' render={() => (
@@ -161,6 +168,7 @@ class App extends React.Component {
             giftLists={this.state.giftLists}
             giftListId={id}
             giftListFormData={this.state.giftListFormData}
+            updateGiftList={this.updateGiftList}
           />
         }} />
         <Footer />
