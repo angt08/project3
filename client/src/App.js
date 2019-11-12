@@ -10,7 +10,8 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import GiftListDetails from './components/GiftListDetails';
 import CreateGiftListForm from './components/CreateGiftListForm';
-import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList } from './services/api-helper';
+import UpdateGiftListForm from './components/UpdateGiftListForm';
+import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList, putGiftList } from './services/api-helper';
 
 class App extends React.Component {
   state = {
@@ -91,7 +92,13 @@ class App extends React.Component {
     this.props.history.push('./')
   }
   /////////////////////////////////
-
+  updateGiftList = async (id) => {
+    const newGiftLists = await putGiftList(id, this.state.giftListFormData);
+    this.setState(prevState => ({
+      giftLists: [...prevState.giftLists, newGiftLists]
+    }))
+    this.props.history.push('./')
+  }
   componentDidMount = async () => {
     console.log("component did mount ran.");
     await this.handleVerify();
@@ -111,7 +118,7 @@ class App extends React.Component {
           <Home
             giftLists={this.state.giftLists}
           />)} />
-        
+
         <Route path="/about" render={() => (<About />)} />
 
         <Route path="/login" render={() => (
@@ -120,7 +127,7 @@ class App extends React.Component {
             authErrorMessage={this.state.authErrorMessage}
           />
         )} />
-        
+
         <Route path="/register" render={() => (
           <RegisterForm
             handleRegister={this.handleRegister}
@@ -144,6 +151,18 @@ class App extends React.Component {
             giftListFormData={this.state.giftListFormData}
           />
         )} />
+        <Route exact path='/update_giftList/:id' render={(props) => {
+          const id = props.match.params.id;
+          // console.log(`id=${id}`)
+          // const currentGiftList = this.state.giftLists.find(gl => {
+          //   return gl.id === parseInt(id)
+          // })
+          return <UpdateGiftListForm
+            giftLists={this.state.giftLists}
+            giftListId={id}
+            giftListFormData={this.state.giftListFormData}
+          />
+        }} />
         <Footer />
       </div>
     );

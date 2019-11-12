@@ -62,3 +62,9 @@ export const getGiftsByGiftList = async (id) => {
     return { error: "Unable to retrieve gifts" }
   }
 }
+////// UPDATE GIFT LIST ////
+export const putGiftList = async (id, giftListData) => {
+  const resp = await api.put(`/giftlists/${id}`, giftListData)
+  return resp.data.giftlist
+}
+
