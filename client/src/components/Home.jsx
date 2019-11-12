@@ -5,16 +5,7 @@ export default function Home(props) {
 
   return (
     <main className="main">
-      {
-        props.currentUser ?
-          <div>
-            <p>Hello, {props.currentUser.username}</p>
-            <button onClick={props.handleLogout}>Logout</button>
-            <Link to="/giftlists/new"><button>Add an Giftlist</button></Link>
-          </div>
-          :
-          <></>
-      }
+      <Link to="/giftlists/new"><button>Add an Giftlist</button></Link>
       {props.giftLists.map(gl => (
         <div>
           <Link to={`/giftlists/${gl.id}`}><h3>{gl.title}</h3></Link>
