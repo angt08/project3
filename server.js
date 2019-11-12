@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 
 app.use('/giftlists', giftlistRouter);
 app.use('/giftlists/:giftListId/gifts', GiftsRouter);
-app.use('/users/:userId/giftlists', giftlistRouter);
+app.use('/users/:userId/giftlists/', giftlistRouter);
 
 
 app.listen(PORT, () => {

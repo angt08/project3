@@ -10,7 +10,7 @@ export default function Home(props) {
           <div>
             <p>Hello, {props.currentUser.username}</p>
             <button onClick={props.handleLogout}>Logout</button>
-            <Link to="/giftlists/new"><button>Add an Giftlist</button></Link>
+            <Link to="/create_giftlists"><button>Add an Giftlist</button></Link>
           </div>
           :
           <></>
