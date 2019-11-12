@@ -35,6 +35,7 @@ export default class UpdateGiftListForm extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value })
+    //console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
@@ -79,7 +80,7 @@ export default class UpdateGiftListForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="due_date">fun fact</label>
+          <label htmlFor="due_date">Due Date</label>
           <input
             type="text"
             name="due_date"

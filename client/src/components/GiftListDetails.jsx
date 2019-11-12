@@ -37,9 +37,13 @@ export default class GiftListDetails extends React.Component {
                 <Link >
                   <button>Add Gift</button>
                 </Link>
-                <Link>
-                  <button>Delete Gift List</button>
-                </Link>
+                <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
+                <button
+                  onClick={() => {
+                    this.props.deleteGiftList(currentGiftList.id)
+                  }}>
+                  Delete Gift List
+                  </button>
               </div>
             </div>
             <div id="gifts">
@@ -67,6 +71,6 @@ export default class GiftListDetails extends React.Component {
           : <></>}
 
       </div>
-      )
+    )
   }
 }
