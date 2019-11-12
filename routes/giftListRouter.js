@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { User, Gift, GiftList, sequelize } = require('../models');
 const { hashPassword, genToken, checkPassword } = require('../services/auth');
 
-const giftListRouter = Router();
+const giftListRouter = Router({mergeParams:true});
 
 // route for all giftlists user owns
 giftListRouter.get("/", async (req, res) => {
@@ -23,10 +23,9 @@ giftListRouter.get("/:id", async (req, res) => {
 })
 
 // create new giftlist 
-giftListRouter.post("/:id", async (req, res) => {
-  console.log("here")
+giftListRouter.post("/", async (req, res) => {
   const data = req.body
-  const userId = req.params.id
+  const userId = req.params.userId
   const user = await User.findByPk(userId)
   const giftlist = await GiftList.create(data)
   giftlist.setUser(user)

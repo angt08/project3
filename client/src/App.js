@@ -10,14 +10,22 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import GiftListDetails from './components/GiftListDetails';
 import CreateGiftListForm from './components/CreateGiftListForm';
-import { registerUser, loginUser, verifyUser, getGiftListsByUser } from './services/api-helper';
+import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList } from './services/api-helper';
 
 class App extends React.Component {
   state = {
     currentUser: null,
     authErrorMessage: "",
-    giftLists: []
+    giftLists: [],
+    giftListFormData: {
+      title: "",
+      description: "",
+      image_link: "",
+      due_date: ""
+    }
   }
+
+
   handleLogin = async (loginData) => {
     const currentUser = await loginUser(loginData);
     if (currentUser.error) {
@@ -62,6 +70,26 @@ class App extends React.Component {
       this.setState({ giftLists: [] })
     }
   }
+  ///////Handle Change /////////
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      giftListFormData: {
+        ...prevState.giftListFormData,
+        [name]: value
+      }
+    }))
+  }
+  ///////////////////////////
+
+  /// Create Gift List /////////////
+  createGiftList = async (userId) => {
+    await postGiftList(userId, this.state.giftListFormData);
+    this.props.history.push('./')
+    // this.props.history.push(`/users/${userId}/giftlists/`)
+  }
+  /////////////////////////////////
+
   componentDidMount = async () => {
     console.log("component did mount ran.");
     await this.handleVerify();
@@ -102,8 +130,12 @@ class App extends React.Component {
             currentGiftList={currentGiftList}
           />
         }} />
-        <Route path='/giftLists/new' render={() => (
+        <Route path='/create_giftLists' render={() => (
           <CreateGiftListForm
+            createGiftList={this.createGiftList}
+            handleChange={this.handleChange}
+            currentUser={currentUser}
+            giftListFormData={this.state.giftListFormData}
           />
         )} />
         <Footer />

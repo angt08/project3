@@ -46,3 +46,9 @@ export const getGiftListsByUser = async (userId) => {
     return { error: "Unable to retrieve gift lists" }
   }
 }
+
+////// CREATE GIFT LIST ////
+export const postGiftList = async (userId, giftListData) => {
+  const resp = await api.post(`/users/${userId}/giftlists`, giftListData)
+  return resp.data.giftlist
+}

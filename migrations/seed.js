@@ -13,7 +13,7 @@ const main = async () => {
 
   const gl1 = await GiftList.create({
     "title": "Angies Mock Birthday",
-    "description": "This is a sample celebration for Angie's not birtghday",
+    "description": "This is a sample celebration for Angie's not birthday",
     "image_link": "https://media.gettyimages.com/photos/birthday-cake-with-candles-lit-picture-id126551741?s=612x612",
     "due_date": "01/10/2020"
   });
