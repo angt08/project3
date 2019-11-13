@@ -3,6 +3,7 @@ html,
 body,
 .app {
   height: 100vh; 
+
 }
 
 
@@ -96,7 +97,7 @@ a{
 }
 
 .cssCircle:hover {
-  background: #3F69A0 ;
+  background:linear-gradient(to right, #CB0B0C, #FF5349);
   cursor: pointer;
 }
 
@@ -117,6 +118,8 @@ a{
 
 h3{
   text-decoration: none;
+  color:linear-gradient(to right, #CB0B0C, #FF5349);
+ 
 }
 img{
   object-fit: cover;
@@ -127,9 +130,12 @@ img{
   flex: 11 auto;
   position:relative;
   display: grid;
-  
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* border: 1px solid red; */
+  background-image: url("gift-8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+
 }
   /* flex: 1 1 auto; */
   /* position:relative;
@@ -137,14 +143,33 @@ img{
   grid-template-columns: 1fr 1fr 1fr; */
 
 
+/*  */
+#giftlist-single{
+margin:10px;
+border:solid 1px #CB000E;
+background-color: rgb(243, 250, 252);
+border-radius:20px;
+
+}
+/*  */
+
 #giftlist-home{
   position:relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border-radius: 5px;
-  background-color:lightslategrey;
-
+  margin-bottom:2%;
+  width:80%;
+  opacity: .9;
 }
+
+#giftlist-single:hover{
+  color:white;
+background-color:  #CB000E;
+}
+
+
+
+
 
 form input{
   height: 40px;

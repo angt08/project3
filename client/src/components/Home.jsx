@@ -17,7 +17,8 @@ export default function Home(props) {
       <div id="giftlist-home">
 
       {props.giftLists.map(gl => (
-        <div>
+        <div id="giftlist-single">
+          
           <Link to={`/giftlists/${gl.id}`}>
             <h3>{gl.title}</h3>
           </Link>
