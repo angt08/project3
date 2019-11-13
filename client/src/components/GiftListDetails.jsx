@@ -1,6 +1,6 @@
 import React from 'react'
 import { getGiftsByGiftList } from '../services/api-helper';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 export default class GiftListDetails extends React.Component {
   state = {
@@ -37,7 +37,11 @@ export default class GiftListDetails extends React.Component {
                 <Link >
                   <button>Add Gift</button>
                 </Link>
-                <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
+
+               
+                  <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
+               
+
                 <button
                   onClick={() => {
                     this.props.deleteGiftList(currentGiftList.id)

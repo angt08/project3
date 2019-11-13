@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CreateGiftListForm(props) {
   console.log(props)
@@ -9,6 +10,10 @@ export default function CreateGiftListForm(props) {
         e.preventDefault();
         props.createGiftList(props.currentUser.id, props.giftListFormData);
       }}>
+        <Link to='/'>
+          <button className="back">X</button>
+        </Link>
+        
         <label htmlFor="title">title</label>
         <input
           type="text"
@@ -46,7 +51,7 @@ export default function CreateGiftListForm(props) {
           onChange={props.handleChange}
         />
         {/* <br /> */}
-        <button>Submit</button>
+        <button className='submit'>Submit</button>
 
       </form>
     </div>
