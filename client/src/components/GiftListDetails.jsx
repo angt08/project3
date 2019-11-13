@@ -1,6 +1,6 @@
 import React from 'react'
 import { getGiftsByGiftList } from '../services/api-helper';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class GiftListDetails extends React.Component {
   state = {
@@ -34,13 +34,13 @@ export default class GiftListDetails extends React.Component {
               <div>
                 <p>{currentGiftList.description}</p>
                 <h4>Due Date: {currentGiftList.due_date}</h4>
+                
                 <Link >
                   <button>Add Gift</button>
                 </Link>
 
-               
                   <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
-               
+                  
 
                 <button
                   onClick={() => {
