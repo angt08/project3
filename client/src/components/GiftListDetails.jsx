@@ -64,6 +64,7 @@ class GiftListDetails extends React.Component {
               <div>
                 <p>{currentGiftList.description}</p>
                 <h4>Due Date: {currentGiftList.due_date}</h4>
+
                 <Link to='/create_gift'>
                   <button>Add Gift</button>
                 </Link>
