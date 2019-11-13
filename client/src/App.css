@@ -81,6 +81,7 @@ a{
 
 .cssCircle {
   margin-top:5%;
+  margin-bottom: 2%;
   border-radius: 999px;
   width: 50px;
   height: 50px;
@@ -91,7 +92,6 @@ a{
   text-align: center;
   transition: background 0.2s linear;
   transition: color 0.2s linear;
-  
   font: 40px Arial, sans-serif
 }
 
@@ -127,7 +127,8 @@ img{
   flex: 11 auto;
   position:relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  
+  /* grid-template-columns: repeat(3, 1fr); */
   /* border: 1px solid red; */
 }
   /* flex: 1 1 auto; */
@@ -190,11 +191,13 @@ button.back:hover{
 }
 
 label{
+
   font-weight: bold;
   color:rgb(19, 5, 5);
   
 }
 input{
+  
   border-radius: 8px;
   font-size: 14px;
   background-color: rgba(255,255,255,0.5);
@@ -279,14 +282,19 @@ footer {
   top: 0;
   left: 0;
   width:100%;
-  height: 100%;
+  height:100%;
   background: rgba(0, 0, 0, 0.6);
 }
 
 .modal-main {
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   position:fixed;
   background: white;
-  width: 80%;
+  width: 50%;
   height: auto;
   top:50%;
   left:50%;
@@ -296,7 +304,6 @@ footer {
 .display-block {
   display: block;
 }
-
 .display-none {
   display: none;
 }
