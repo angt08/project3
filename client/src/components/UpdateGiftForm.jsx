@@ -1,110 +1,134 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default class UpdateGiftForm extends React.Component {
+export default class UpdateGiftForm extends Component {
   state = {
-    item: '',
-    description: '',
-    image_link: '',
-    price: '',
-    location: '',
-    proposed_purchased_date: '',
-    actucal_purchased_date: ''
+    item: "",
+    description: "",
+    image_link: "",
+    price: "",
+    location: "",
+    proposed_purchase_date: "",
+    actual_purchase_date: ""
   }
-  componentDidMount() {
-    this.setFormData()
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.gift !==
-      this.state.gift) {
-      this.setFormData()
-    }
-  }
+
   setFormData = () => {
-    if (this.props.gift.length) {
-      console.log(this.props.gift)
-      const newGift = this.props.gift.find(gift => {
-        return gift.id === parseInt(this.props.id)
-      })
+    if (this.props.giftLists.length) {
       const {
         item,
         description,
         image_link,
         price,
         location,
-        proposed_purchased_date,
-        actucal_purchased_date,
-      } = newGift
+        proposed_purchase_date,
+        actual_purchase_date,
+        ...otherData
+      } = this.props.gifts.find(gift => {
+        return gift.id === parseInt(this.props.giftId)
+      })
       this.setState({
         item,
         description,
         image_link,
         price,
         location,
-        proposed_purchased_date,
-        actucal_purchased_date
+        proposed_purchase_date,
+        actual_purchase_date,
       })
     }
   }
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    })
+
+  componentDidMount() {
+    this.setFormData();
   }
+
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.gifts !== this.props.gifts) {
+      this.setFormData();
+    }
+  }
+
   render() {
+    const { handleChange, item,
+      description,
+      image_link,
+      price,
+      location,
+      proposed_purchase_date,
+      actual_purchase_date } = this.state;
+    const { show, handleClose, giftFormData, handleChange } = props;
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+
     return (
-      <div>
-        <form onSubmit={(event) => {
-          event.preventDefault()
-          this.props.handleUpdate(this.props.id, this.state)
-        }} >
-
-      
-          <input name="item"
-            placeholder="Gift Item"
-            onChange={this.handleChange}
-            value={this.state.formData.item} />
-
-          <input name="description"
-            placeholder="Description"
-            onChange={this.handleChange}
-            value={this.state.formData.description} />
-
-          <input name="image_link"
-            placeholder="Image URL "
-            onChange={this.handleChange}
-            value={this.state.formData.image_link} />
-
-          <input name="price"
-            placeholder="Price"
-            onChange={this.handleChange}
-            value={this.state.formData.price} />
-
+      <div className={showHideClassName}>
+        < form className="modal-main" onSubmit={(e) => {
+          e.preventDefault();
+          props.updateGift(this.props.giftId, this.state);
+        }}>
+          <label htmlFor="item">Gift</label>
           <input
+            type="text"
+            name="item"
+            id="item"
+            value={item}
+            onChange={handleChange}
+          />
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            value={description}
+            onChange={handleChange}
+          />
+          <label htmlFor="image_link">Image</label>
+          <input
+            type="text"
+            name="image_link"
+            id="image_link"
+            value={image_link}
+            onChange={handleChange}
+          />
+          <label htmlFor="price">Price</label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            value={price}
+            onChange={handleChange}
+          />
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
             name="location"
-            placeholder="Location"
-            onChange={this.handleChange}
-            value={this.state.formData.location} />
-
-          <input name="proposed_purchased_date"
-            placeholder=""
-            onChange={this.handleChange}
-            value={this.state.formData.proposed_purchased_date} />
-
-          <input name="actual_purchased_date"
-            placeholder="Fun Fact"
-            onChange={this.handleChange}
-            value={this.state.formData.actual_purchased_date} />
-
-          <input type="submit"
-            value="Add Gift" />
-
-          <Link>
-            <button>Edit</button>
-          </Link>
-
-        </form>
-      </div>
+            id="location"
+            value={location}
+            onChange={handleChange}
+          />
+          <label htmlFor="proposed_purchase_date">proposed_purchase_date</label>
+          <input
+            type="text"
+            name="proposed_purchase_date"
+            id="proposed_purchase_date"
+            value={proposed_purchase_date}
+            onChange={handleChange}
+          />
+          <label htmlFor="actual_purchase_date">actual_purchase_date</label>
+          <input
+            type="text"
+            name="actual_purchase_date"
+            id="actual_purchase_date"
+            value={actual_purchase_date}
+            onChange={handleChange}
+          />
+          <button onClick={handleClose}>Add Gift</button>
+        </form >
+      </div >
     )
   }
+
 }

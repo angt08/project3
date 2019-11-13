@@ -19,7 +19,10 @@ gifts.post('/', async (req, res, next) => {
   try {
     const id = req.params.giftListId;
     const data = req.body;
+    if (data.proposed_purchase_date === '') data.proposed_purchase_date = null;
+    if (data.actual_purchase_date === '') data.actual_purchase_date = null;
     const giftlist = await GiftList.findByPk(id);
+    console.log(data);
     const gift = await Gift.create(data)
     gift.setGiftlist(giftlist);
     res.json({ gift })
