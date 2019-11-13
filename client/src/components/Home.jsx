@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home(props) {
-
+  let divStyle = { display: 'none' };
+  if (props.currentUser) {
+    divStyle.display = "";
+  }
   return (
     <main className="main">
-
       <Link to="/create_giftLists">
-        <div class="cssCircle plusSign">
+        <div style={divStyle} class="cssCircle plusSign">
           &#43;
           </div>
       </Link>
