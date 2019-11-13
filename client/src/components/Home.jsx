@@ -7,7 +7,6 @@ export default function Home(props) {
     <main className="main">
 
       <Link to="/create_giftLists">
-        {/* <button>Add an Giftlist</button> */}
         <div class="cssCircle plusSign">
           &#43;
           </div>
@@ -22,8 +21,7 @@ export default function Home(props) {
           </Link>
 
           <img src={gl.image_link} width="200px" height="200px" />
-          <p>{gl.description}</p>
-          <p>Due Date: {gl.due_date}</p>
+         
         </div>
       ))}
         
