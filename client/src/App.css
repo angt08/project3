@@ -261,7 +261,6 @@ padding-left: 20px;
 
 footer {
   flex: 0 0 auto;
-
   font-size:16px;
   width:100%;
   height:100px;
@@ -293,12 +292,15 @@ footer {
   align-items: center;
   text-align: center;
   position:fixed;
-  background: white;
   width: 50%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center fixed;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .display-block {
