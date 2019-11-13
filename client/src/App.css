@@ -94,6 +94,36 @@ form button{
   height: 20px;
   width:20%;
 }
+div.background{
+  background:url('http://www.powerpoint-background.com/wp-content/uploads/2018/12/Diapositive2-11.jpg');
+}
+label{
+  font-weight: bold;
+  color:whitesmoke;
+}
+input{
+  border-radius: 8px;
+  font-size: 14px;
+}
+input:hover{
+  transition: background-color 0.8 ease;
+  background-color:rgb(199, 198, 198);
+}
+
+button.submit{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10px;
+font-size: 16px;
+border: 1px solid black;
+border-radius: 16px;
+width: 120px;
+background:#fffdd0;
+}
+
+button.submit:hover{
+background:linear-gradient(to left, rgb(191, 249, 242),whitesmoke)
+}
 
 
 
