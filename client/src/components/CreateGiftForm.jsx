@@ -1,69 +1,78 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CreateGiftForm(props) {
+  const { show, handleClose, giftFormData, currentGiftList, handleChange } = props;
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
-    // <form onSubmit={(e) => {
-    //   e.preventDefault();
-    //   props.createGift(props.giftList.id, props.giftFormData);
-    // }}>
-    //   <label htmlFor="item">Gift</label>
-    //   <input
-    //     type="text"
-    //     name="item"
-    //     id="item"
-    //     value={props.giftFormData.item}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="description">Description</label>
-    //   <input
-    //     type="text"
-    //     name="description"
-    //     id="description"
-    //     value={props.giftFormData.description}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="image_link">Image</label>
-    //   <input
-    //     type="text"
-    //     name="image_link"
-    //     id="image_link"
-    //     value={props.giftFormData.image_link}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="price">Price</label>
-    //   <input
-    //     type="text"
-    //     name="price"
-    //     id="price"
-    //     value={props.giftFormData.price}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="location">Location</label>
-    //   <input
-    //     type="text"
-    //     name="location"
-    //     id="location"
-    //     value={props.giftFormData.location}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="proposed_purchased_date">proposed_purchased_date</label>
-    //   <input
-    //     type="text"
-    //     name="proposed_purchased_date"
-    //     id="proposed_purchased_date"
-    //     value={props.giftFormData.proposed_purchased_date}
-    //     onChange={props.handleChange}
-    //   />
-    //   <label htmlFor="actual_purchased_date">actual_purchased_date</label>
-    //   <input
-    //     type="text"
-    //     name="actual_purchased_date"
-    //     id="actual_purchased_date"
-    //     value={props.giftFormData.actual_purchased_date}
-    //     onChange={props.handleChange}
-    //   />
-    //   <button>Add Gift</button>
-    // </form>
-    <p>Here</p>
+    <div className={showHideClassName}>
+      < form className="modal-main" onSubmit={(e) => {
+        e.preventDefault();
+        props.createGift(currentGiftList.id, giftFormData);
+      }}>
+
+       <Link to='/'>
+          <button className="back">X</button>
+      </Link>
+
+        <label htmlFor="item">Gift</label>
+        <input
+          type="text"
+          name="item"
+          id="item"
+          value={giftFormData.item}
+          onChange={handleChange}
+        />
+        <label htmlFor="description">Description</label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          value={giftFormData.description}
+          onChange={handleChange}
+        />
+        <label htmlFor="image_link">Image</label>
+        <input
+          type="text"
+          name="image_link"
+          id="image_link"
+          value={giftFormData.image_link}
+          onChange={handleChange}
+        />
+        <label htmlFor="price">Price</label>
+        <input
+          type="text"
+          name="price"
+          id="price"
+          value={giftFormData.price}
+          onChange={handleChange}
+        />
+        <label htmlFor="location">Location</label>
+        <input
+          type="text"
+          name="location"
+          id="location"
+          value={giftFormData.location}
+          onChange={handleChange}
+        />
+        <label htmlFor="proposed_purchase_date">Proposed Purchase Date</label>
+        <input
+          type="text"
+          name="proposed_purchase_date"
+          id="proposed_purchase_date"
+          value={giftFormData.proposed_purchase_date}
+          onChange={handleChange}
+        />
+        <label htmlFor="actual_purchase_date">Actual Purchase Date</label>
+        <input
+          type="text"
+          name="actual_purchase_date"
+          id="actual_purchase_date"
+          value={giftFormData.actual_purchase_date}
+          onChange={handleChange}
+        />
+        <button className='gift_button' onClick={handleClose}>Add Gift</button>
+      </form >
+    </div >
   )
 }
