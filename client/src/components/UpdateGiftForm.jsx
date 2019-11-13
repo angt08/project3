@@ -133,7 +133,7 @@ export default class UpdateGiftForm extends Component {
             value={actual_purchase_date}
             onChange={this.handleChange}
           />
-          <button onClick={handleClose}>Update Gift</button>
+          <button className='update_button' onClick={handleClose}>Update Gift</button>
         </form >
       </div >
     )

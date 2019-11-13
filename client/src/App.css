@@ -148,7 +148,7 @@ img{
 
 form input{
   height: 40px;
-  width: 50%;
+  width: 70%;
   margin: 10px;
 }
 form button{
@@ -161,7 +161,6 @@ form button{
 } */
 
 form {
-  
     width: 50%;
     position: fixed;
     left: 50%;
@@ -184,7 +183,7 @@ button.back{
   border: 2px solid black;
   width: 30px;
   display: flex;
-  margin-left: 520px;
+  margin-left: 540px;
 }
 button.back:hover{
   background: whitesmoke;
@@ -204,10 +203,11 @@ input{
 }
 input:hover{
   transition: background-color 0.8 ease;
-  background-color:rgb(199, 198, 198);
+  background: linear-gradient(to right, #CB0B0C, #FF5349);
+  opacity: 0.9;
 }
 
-button.submit{
+button.submit, button.update_button, button.gift_button{
   position: relative;
   margin: 0 auto;
   margin-top: 10px;
@@ -215,11 +215,12 @@ font-size: 16px;
 border: 1px solid black;
 border-radius: 16px;
 width: 120px;
-background:#fffdd0;
+color:whitesmoke;
+background: linear-gradient(to right, #CB0B0C, #FF5349);
 }
 
 button.submit:hover{
-background:linear-gradient(to left, rgb(191, 249, 242),whitesmoke)
+background: red;
 }
 
 #copyright{
@@ -297,7 +298,7 @@ footer {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center fixed;
+  background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center;
     background-size: cover;
     max-width: 100%;
     max-height: 100%;
