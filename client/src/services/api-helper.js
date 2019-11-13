@@ -72,3 +72,9 @@ export const deleteGiftList = async (id) => {
   const resp = await api.delete(`/giftlists/${id}`);
   return resp.data;
 }
+
+////// CREATE GIFT ////
+export const postGift = async (giftListId, giftData) => {
+  const resp = await api.post(`/giftlists/${giftListId}/gifts`, giftData)
+  return resp.data.giftlist
+}

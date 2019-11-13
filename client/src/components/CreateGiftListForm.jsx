@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function CreateGiftListForm(props) {
-  console.log(props)
   return (
     <div>
 
