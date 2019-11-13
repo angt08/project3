@@ -125,6 +125,7 @@ class App extends React.Component {
 
         <Route exact path="/" render={() => (
           <Home
+            currentUser={currentUser}
             giftLists={this.state.giftLists}
           />)} />
 

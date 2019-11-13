@@ -30,7 +30,7 @@ header {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   background-image: url('https://media.giphy.com/media/21QQJMEsZm9fGKUyWF/giphy.gif');
-  background-size: 20%;
+  background-size: 18%;
   background-repeat: no-repeat;
   background-position-y: 15px;
   background-position-x: 40px;
@@ -43,18 +43,16 @@ header {
   grid-column: 2;
   flex-direction: column;
   margin: -5px;
-  font-family: 'Clicker Script', cursive;
   /* border: 1p solid yellow; */
 }
 
 .headingTags h1{
   text-align: center;
   font-family: 'Supermercado One', cursive;
+  font-size: 5.5em;
   color: white;
-  font-size: 50px;
   text-shadow: 2px 3px 5px rgb(0, 0, 0);
-  font-size: 5em;
-  padding-top: 20px;
+  padding-top: 10px;
   margin: 20px;
   /* border: 1px solid white; */
   }
@@ -62,23 +60,36 @@ header {
 .headingTags h2 {
   font-size: 2em;
   color: white;
-  margin-bottom: 20px;
-  border: 1px solid white;
+  position: relative;
+  bottom: 20px;
+  font-family: 'Bad Script', cursive;
+  height: 20px;
+  /* border: 1px solid white; */
 }
 
-nav a{
-  display: flex;
-  flex-direction: column;
+#logOut {
+  align-self: center;
+  color: white;
+  font-size: 1.5em;
+  /* border: 1px solid white; */
+  width: 60%;
+  margin-left: 100px;
 }
 
-a{
+.accountLogo{
+  height: 70px;
+  width: 45%;
+  position: relative;
+  /* top: 70px; */
+  left: 70px;
+}
+
+header a{
   text-decoration: none;
+  color: white;
 }
-
 
 /* add  button */
-
-
 .cssCircle {
   margin-top:5%;
   margin-bottom: 2%;
@@ -113,6 +124,31 @@ a{
 .plusSign:hover {
   color: white;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 /*                  */
 
 h3{
