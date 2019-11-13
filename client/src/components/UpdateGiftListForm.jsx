@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class UpdateGiftListForm extends Component {
   state = {
@@ -49,11 +50,17 @@ export default class UpdateGiftListForm extends Component {
 
     return (
       <div>
+         
         <form onSubmit={(e) => {
           e.preventDefault();
           this.props.updateGiftList(this.props.giftListId, this.state);
         }}>
-          <label htmlFor="title">title</label>
+
+        <Link to='/'>
+          <button className="back">X</button>
+        </Link>
+
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             name="title"
@@ -62,7 +69,7 @@ export default class UpdateGiftListForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="image_link">image link</label>
+          <label htmlFor="image_link">Image Link</label>
           <input
             type="text"
             name="image_link"
@@ -71,7 +78,7 @@ export default class UpdateGiftListForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="description">description</label>
+          <label htmlFor="description">Description</label>
           <input
             type="text"
             name="description"
@@ -89,7 +96,7 @@ export default class UpdateGiftListForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button>Submit</button>
+          <button className='submit'>Submit</button>
         </form>
       </div>
     )

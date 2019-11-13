@@ -1,10 +1,22 @@
 import React from 'react'
-import { getGiftsByGiftList } from '../services/api-helper';
-import { Link } from 'react-router-dom';
+import CreateGiftForm from './CreateGiftForm';
+import { getGiftsByGiftList, postGift } from '../services/api-helper';
+import { Link, Route, withRouter } from 'react-router-dom';
 
-export default class GiftListDetails extends React.Component {
+
+class GiftListDetails extends React.Component {
   state = {
-    gifts: []
+    gifts: [],
+    giftFormData: {
+      item: "",
+      description: "",
+      image_link: "",
+      price: "",
+      location: "",
+      proposed_purchase_date: "",
+      actual_purchase_date: ""
+    },
+    ben: ""
   }
   async componentDidMount() {
     await this.getGifts();
@@ -19,13 +31,31 @@ export default class GiftListDetails extends React.Component {
     }
     console.log(this.state.gifts);
   }
+  ///////Handle Change /////////
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      giftFormData: {
+        ...prevState.giftFormData,
+        [name]: value
+      }
+    }))
+  }
+  // /// Create Gift /////////////
+  createGift = async () => {
+    const newGift = await postGift(this.props.currentGiftList.id, this.state.giftListFormData);
+    this.setState(prevState => ({
+      giftLists: [...prevState.giftLists, newGift]
+    }))
+    this.props.history.push('./')
+  }
 
   render() {
     const { currentGiftList } = this.props;
     const { gifts } = this.state;
 
     return (
-      <div>
+      <div className="main">
         {currentGiftList ?
           <div id="gift-list-details">
             <h1>{currentGiftList.title}</h1>
@@ -34,9 +64,27 @@ export default class GiftListDetails extends React.Component {
               <div>
                 <p>{currentGiftList.description}</p>
                 <h4>Due Date: {currentGiftList.due_date}</h4>
-                <Link >
+
+                <Link to='/create_gift'>
                   <button>Add Gift</button>
                 </Link>
+                <Route path='/create_gift' render={() => (
+                  <CreateGiftForm
+                    createGift={this.createGift}
+                    handleChange={this.handleChange}
+                    giftFormData={this.state.giftFormData}
+                  />
+                )} />
+                {/* <Link to={`${this.props.match.url}/create_gift`}>
+                  <button onClick={() => (console.log(`url=${this.props.match.url}, path=${this.props.match.path}`))} >Add Gift</button>
+                </Link>
+                <Route path={`${this.props.match.path}/create_gift`} render={() => (
+                  <CreateGiftForm
+                    createGift={this.createGift}
+                    handleChange={this.handleChange}
+                    giftFormData={this.state.giftFormData}
+                  />
+                )} /> */}
                 <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
                 <button
                   onClick={() => {
@@ -69,8 +117,7 @@ export default class GiftListDetails extends React.Component {
             </div>
           </div>
           : <></>}
-
       </div>
     )
   }
-}
+} export default withRouter(GiftListDetails);
