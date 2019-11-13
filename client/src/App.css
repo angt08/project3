@@ -1,14 +1,16 @@
+
 html,
 body,
 .app {
-  /* height: 100vh;  */
-
+  height: 100vh; 
 }
 
+
 body {
-  margin: 0;
-  font-size:20px;
-  font-family:sans-serif;
+  margin: 0 auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  /* border: 1px solid red; */
 }
 
 div{
@@ -24,79 +26,193 @@ text-align:center;
 
 
 header {
-  flex-shrink: 0;
   height:250px;
-  width:100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size:18px;
-  background-color: lavenderblush;
-  right:0;
-  left:0;
-  margin-top: 0;
-}
-nav a{
-
-  padding-right: 5%;
-  padding-left: 70%;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  background-image: url('https://media.giphy.com/media/21QQJMEsZm9fGKUyWF/giphy.gif');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position-y: 15px;
+  background-position-x: 40px;
+  background-color: #CB000E;
+  margin: 0 auto;
+  /* border: 1px solid red; */
 }
 
+.headingTags {
+  grid-column: 2;
+  flex-direction: column;
+  margin: -5px;
+  font-family: 'Clicker Script', cursive;
+  /* border: 1p solid yellow; */
+}
 
-header h1{
-  width: 100vw;
-  font-size: 4em;
-  margin-top: 30px;
+.headingTags h1{
+  text-align: center;
+  font-family: 'Supermercado One', cursive;
+  color: white;
+  font-size: 50px;
+  text-shadow: 2px 3px 5px rgb(0, 0, 0);
+  font-size: 5em;
+  padding-top: 20px;
+  margin: 20px;
+  /* border: 1px solid white; */
+  }
+
+.headingTags h2 {
+  font-size: 2em;
+  color: white;
   margin-bottom: 20px;
-  text-align: left;
+  border: 1px solid white;
 }
 
-h1{
-  margin-top:8%;
-  margin-left:5%;
+nav a{
+  display: flex;
+  flex-direction: column;
 }
+
+a{
+  text-decoration: none;
+}
+
+
+/* add  button */
+
+
+.cssCircle {
+  margin-top:5%;
+  border-radius: 999px;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  background: white;
+  border: 1px solid #003580;
+  color: black;
+  text-align: center;
+  transition: background 0.2s linear;
+  transition: color 0.2s linear;
+  
+  font: 40px Arial, sans-serif
+}
+
+.cssCircle:hover {
+  background: #3F69A0 ;
+  cursor: pointer;
+}
+
+.minusSign {
+  line-height: 0.9em;
+  margin-bottom: 1px;
+}
+
+.plusSign {
+  line-height: 1.1em;
+}
+
+.minusSign:hover,
+.plusSign:hover {
+  color: white;
+}
+/*                  */
+
 h3{
   text-decoration: none;
 }
 img{
-  object-fit: fit;
+  object-fit: cover;
   text-align:center;
 }
 
 .main {
-  flex: 1 1 auto;
+  flex: 11 auto;
+  position:relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* border: 1px solid red; */
+}
+  /* flex: 1 1 auto; */
+  /* position:relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+
+
+#giftlist-home{
   position:relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 5px;
+  background-color:lightslategrey;
+
 }
 
-form{
-  padding:10px;
-  flex: 1 1 auto;
-  position: relative;
-  font-size:20px;
-  display: flex;
-  flex-direction: column;
-  margin:auto;
-  height: 100vh; 
-  width:50%;
-  
-}
 form input{
-  height: 20px;
+  height: 40px;
+  width: 50%;
+  margin: 10px;
 }
 form button{
   
   height: 20px;
   width:20%;
 }
+/* div.background{
+  background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center center fixed;
+} */
 
+form {
+  
+    width: 65%;
+    position: fixed;
+    left: 50%;
+    margin-left: -26%;
+    top: 5vh;
+    border-radius: 5px;
+    border: 2px solid black;
+    min-height: 70vh;
+    padding-top: 2%;
+    box-sizing: border-box;
+    background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center fixed;
+    background-size: 78%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
 
+button.back{
+  background: red;
+  border: 2px solid black;
+  width: 30px;
+}
 
+label{
+  font-weight: bold;
+  color:rgb(19, 5, 5);
+  
+}
+input{
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: rgba(255,255,255,0.5);
+}
+input:hover{
+  transition: background-color 0.8 ease;
+  background-color:rgb(199, 198, 198);
+}
+
+button.submit{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10px;
+font-size: 16px;
+border: 1px solid black;
+border-radius: 16px;
+width: 120px;
+background:#fffdd0;
+}
+
+button.submit:hover{
+background:linear-gradient(to left, rgb(191, 249, 242),whitesmoke)
+}
 
 #copyright{
   text-align: center;

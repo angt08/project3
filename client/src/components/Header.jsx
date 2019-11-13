@@ -4,15 +4,18 @@ export default function Header(props) {
 
   return (
     <header>
-      <h1>GiftBox</h1>
-      <nav>
+      <div className="headingTags" >
+        <h1>GiftBox</h1>
         {
           props.currentUser ?
-            <p>Welcome, {props.currentUser.username}</p>
+            <h2>Welcome, {props.currentUser.username}</h2>
             :
             <></>
         }
-        
+      </div>
+      
+      <nav>
+
         <Link to="/">Home</Link>
         {
           props.currentUser ?
