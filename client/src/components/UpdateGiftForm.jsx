@@ -12,7 +12,7 @@ export default class UpdateGiftForm extends Component {
   }
 
   setFormData = () => {
-    if (this.props.giftLists.length) {
+    if (this.props.gifts.length) {
       const {
         item,
         description,
@@ -44,6 +44,7 @@ export default class UpdateGiftForm extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value })
+    console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
@@ -53,21 +54,21 @@ export default class UpdateGiftForm extends Component {
   }
 
   render() {
-    const { handleChange, item,
+    const { item,
       description,
       image_link,
       price,
       location,
       proposed_purchase_date,
       actual_purchase_date } = this.state;
-    const { show, handleClose, giftFormData, handleChange } = props;
+    const { show, handleClose, giftFormData } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
       <div className={showHideClassName}>
         < form className="modal-main" onSubmit={(e) => {
           e.preventDefault();
-          props.updateGift(this.props.giftId, this.state);
+          this.props.updateGift(this.props.giftId, this.state);
         }}>
           <label htmlFor="item">Gift</label>
           <input
@@ -75,7 +76,7 @@ export default class UpdateGiftForm extends Component {
             name="item"
             id="item"
             value={item}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="description">Description</label>
           <input
@@ -83,7 +84,7 @@ export default class UpdateGiftForm extends Component {
             name="description"
             id="description"
             value={description}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="image_link">Image</label>
           <input
@@ -91,7 +92,7 @@ export default class UpdateGiftForm extends Component {
             name="image_link"
             id="image_link"
             value={image_link}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="price">Price</label>
           <input
@@ -99,7 +100,7 @@ export default class UpdateGiftForm extends Component {
             name="price"
             id="price"
             value={price}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="location">Location</label>
           <input
@@ -107,7 +108,7 @@ export default class UpdateGiftForm extends Component {
             name="location"
             id="location"
             value={location}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="proposed_purchase_date">proposed_purchase_date</label>
           <input
@@ -115,7 +116,7 @@ export default class UpdateGiftForm extends Component {
             name="proposed_purchase_date"
             id="proposed_purchase_date"
             value={proposed_purchase_date}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
           <label htmlFor="actual_purchase_date">actual_purchase_date</label>
           <input
@@ -123,9 +124,9 @@ export default class UpdateGiftForm extends Component {
             name="actual_purchase_date"
             id="actual_purchase_date"
             value={actual_purchase_date}
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
-          <button onClick={handleClose}>Add Gift</button>
+          <button onClick={handleClose}>Update Gift</button>
         </form >
       </div >
     )
