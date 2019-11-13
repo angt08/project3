@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { getData } from './services/api-helper';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Route, withRouter } from 'react-router-dom';
@@ -10,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import GiftListDetails from './components/GiftListDetails';
 import CreateGiftListForm from './components/CreateGiftListForm';
 import UpdateGiftListForm from './components/UpdateGiftListForm';
+// import CreateGiftForm from './components/CreateGiftForm';
 import { registerUser, loginUser, verifyUser, getGiftListsByUser, postGiftList, putGiftList, deleteGiftList } from './services/api-helper';
 
 class App extends React.Component {
@@ -107,6 +107,7 @@ class App extends React.Component {
     }))
     this.props.history.push('../')
   }
+
   componentDidMount = async () => {
     console.log("component did mount ran.");
     await this.handleVerify();
@@ -140,7 +141,7 @@ class App extends React.Component {
             authErrorMessage={this.state.authErrorMessage}
           />
         )} />
-        <Route exact path='/giftLists/:id' render={(props) => {
+        <Route path='/giftLists/:id' render={(props) => {
           const id = props.match.params.id;
           const currentGiftList = this.state.giftLists.find(gl => {
             return gl.id === parseInt(id)
@@ -171,6 +172,11 @@ class App extends React.Component {
             updateGiftList={this.updateGiftList}
           />
         }} />
+        {/* <Route path="/giftLists/create_gift" render={() => (
+          <GiftListDetails
+            currentUser={currentUser}
+          />
+        )} /> */}
         <Footer />
       </div>
     );

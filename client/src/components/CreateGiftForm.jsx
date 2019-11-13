@@ -2,29 +2,68 @@ import React from 'react'
 
 export default function CreateGiftForm(props) {
   return (
-    <form onSubmit={props.handleSubmit} >
-      
-      <Link to='/giftlist'>
-        <button>Create</button>
-      </Link>
-     
-      
-      <input name="item" placeholder="Gift Item" onChange={props.handleChange} value={props.formData.item} />
-
-      <input name="description" placeholder="Description" onChange={props.handleChange} value={props.formData.description} />
-
-      <input name="image_link" placeholder="Image URL " onChange={props.handleChange} value={props.formData.image_link} />
-
-      <input name="price" placeholder="Price" onChange={props.handleChange} value={props.formData.price} />
-
-      <input name="location" placeholder="Location" onChange={props.handleChange} value={props.formData.location} />
-
-      <input name="proposed_purchased_date" placeholder="" onChange={props.handleChange} value={props.formData.proposed_purchased_date} />
-
-      <input name="actual_purchased_date" placeholder="Fun Fact" onChange={props.handleChange} value={props.formData.actual_purchased_date} />
-
-      <input type="submit" value="Add Gift" />
-    </form>
+    // <form onSubmit={(e) => {
+    //   e.preventDefault();
+    //   props.createGift(props.giftList.id, props.giftFormData);
+    // }}>
+    //   <label htmlFor="item">Gift</label>
+    //   <input
+    //     type="text"
+    //     name="item"
+    //     id="item"
+    //     value={props.giftFormData.item}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="description">Description</label>
+    //   <input
+    //     type="text"
+    //     name="description"
+    //     id="description"
+    //     value={props.giftFormData.description}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="image_link">Image</label>
+    //   <input
+    //     type="text"
+    //     name="image_link"
+    //     id="image_link"
+    //     value={props.giftFormData.image_link}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="price">Price</label>
+    //   <input
+    //     type="text"
+    //     name="price"
+    //     id="price"
+    //     value={props.giftFormData.price}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="location">Location</label>
+    //   <input
+    //     type="text"
+    //     name="location"
+    //     id="location"
+    //     value={props.giftFormData.location}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="proposed_purchased_date">proposed_purchased_date</label>
+    //   <input
+    //     type="text"
+    //     name="proposed_purchased_date"
+    //     id="proposed_purchased_date"
+    //     value={props.giftFormData.proposed_purchased_date}
+    //     onChange={props.handleChange}
+    //   />
+    //   <label htmlFor="actual_purchased_date">actual_purchased_date</label>
+    //   <input
+    //     type="text"
+    //     name="actual_purchased_date"
+    //     id="actual_purchased_date"
+    //     value={props.giftFormData.actual_purchased_date}
+    //     onChange={props.handleChange}
+    //   />
+    //   <button>Add Gift</button>
+    // </form>
+    <p>Here</p>
   )
- }
- 
+}
