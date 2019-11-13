@@ -80,6 +80,11 @@ export const postGift = async (giftListId, giftData) => {
 }
 ////// CREATE GIFT ////
 export const putGift = async (giftId, giftData) => {
-  const resp = await api.post(`/giftlists/anything/gifts/${giftId}`, giftData)
+  const resp = await api.put(`/giftlists/anything/gifts/${giftId}`, giftData)
   return resp.data.gift
+}
+////// CREATE GIFT ////
+export const deleteGift = async (giftId) => {
+  const resp = await api.delete(`/giftlists/anything/gifts/${giftId}`)
+  return "Deleted";
 }

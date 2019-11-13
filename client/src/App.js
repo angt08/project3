@@ -161,10 +161,6 @@ class App extends React.Component {
         )} />
         <Route exact path='/update_giftList/:id' render={(props) => {
           const id = props.match.params.id;
-          // console.log(`id=${id}`)
-          // const currentGiftList = this.state.giftLists.find(gl => {
-          //   return gl.id === parseInt(id)
-          // })
           return <UpdateGiftListForm
             giftLists={this.state.giftLists}
             giftListId={id}
@@ -172,11 +168,6 @@ class App extends React.Component {
             updateGiftList={this.updateGiftList}
           />
         }} />
-        {/* <Route path="/giftLists/create_gift" render={() => (
-          <GiftListDetails
-            currentUser={currentUser}
-          />
-        )} /> */}
         <Footer />
       </div>
     );

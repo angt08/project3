@@ -1,7 +1,7 @@
 import React from 'react'
 import CreateGiftForm from './CreateGiftForm';
 import UpdateGiftForm from './UpdateGiftForm';
-import { getGiftsByGiftList, postGift, putGift } from '../services/api-helper';
+import { getGiftsByGiftList, postGift, putGift, deleteGift } from '../services/api-helper';
 import { Link, Route, withRouter } from 'react-router-dom';
 
 
@@ -27,7 +27,7 @@ class GiftListDetails extends React.Component {
   hideModal = () => {
     this.setState({ show: false });
   };
-  showModalUpdate = (gift) => {
+  showModalUpdate = () => {
 
     this.setState({ showUpdate: true });
   };
@@ -69,7 +69,16 @@ class GiftListDetails extends React.Component {
   updateGift = async (id, data) => {
     const newGift = await putGift(id, data);
     this.setState(prevState => ({
-      gifts: [...prevState.gifts, newGift]
+      gifts: prevState.gifts.map(gift =>
+        gift.id === parseInt(id) ? newGift : gift)
+    }))
+  }
+  deleteGiftL = async (id) => {
+    await deleteGift(id);
+    this.setState(prevState => ({
+      gifts: prevState.gifts.filter(gift => {
+        return gift.id !== id
+      })
     }))
   }
 
@@ -116,19 +125,18 @@ class GiftListDetails extends React.Component {
                     <p>Location: {gift.locatiopn}</p>
                     <p>Proposed Purchase Date:{gift.proposed_purchase_date}</p>
                     {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>}
-                    <button type="button" onClick={this.showModalUpdate(gift)}>Update Gift</button>
+                    <button type="button" onClick={this.showModalUpdate}>Update Gift</button>
                     <UpdateGiftForm
                       gifts={gifts}
                       giftId={gift.id}
                       show={this.state.showUpdate}
                       handleClose={this.hideModalUpdate}
                       updateGift={this.updateGift}
-                      handleChange={this.handleChange}
                       giftFormData={this.state.giftFormData}
                     />
-                    <Link>
-                      <button>Delete</button>
-                    </Link>
+                    <button
+                      onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
+                    </button>
                   </div>
                 ))
               }
