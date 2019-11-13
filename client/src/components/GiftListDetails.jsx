@@ -1,6 +1,7 @@
 import React from 'react'
 import CreateGiftForm from './CreateGiftForm';
-import { getGiftsByGiftList, postGift } from '../services/api-helper';
+import UpdateGiftForm from './UpdateGiftForm';
+import { getGiftsByGiftList, postGift, putGift } from '../services/api-helper';
 import { Link, Route, withRouter } from 'react-router-dom';
 
 
@@ -16,11 +17,28 @@ class GiftListDetails extends React.Component {
       proposed_purchase_date: "",
       actual_purchase_date: ""
     },
-    ben: ""
+    show: false,
+    showUpdate: false
   }
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+  showModalUpdate = (gift) => {
+
+    this.setState({ showUpdate: true });
+  };
+
+  hideModalUpdate = () => {
+    this.setState({ showUpdate: false });
+  };
   async componentDidMount() {
     await this.getGifts();
   }
+
   getGifts = async () => {
     if (this.props.currentGiftList) {
       const gifts = await getGiftsByGiftList(this.props.currentGiftList.id);
@@ -29,7 +47,6 @@ class GiftListDetails extends React.Component {
     else {
       this.setState({ gifts: [] })
     }
-    console.log(this.state.gifts);
   }
   ///////Handle Change /////////
   handleChange = (e) => {
@@ -43,11 +60,17 @@ class GiftListDetails extends React.Component {
   }
   // /// Create Gift /////////////
   createGift = async () => {
-    const newGift = await postGift(this.props.currentGiftList.id, this.state.giftListFormData);
+    const newGift = await postGift(this.props.currentGiftList.id, this.state.giftFormData);
     this.setState(prevState => ({
-      giftLists: [...prevState.giftLists, newGift]
+      gifts: [...prevState.gifts, newGift]
     }))
-    this.props.history.push('./')
+  }
+  // /// Update Gift /////////////
+  updateGift = async (id, data) => {
+    const newGift = await putGift(id, data);
+    this.setState(prevState => ({
+      gifts: [...prevState.gifts, newGift]
+    }))
   }
 
   render() {
@@ -64,27 +87,15 @@ class GiftListDetails extends React.Component {
               <div>
                 <p>{currentGiftList.description}</p>
                 <h4>Due Date: {currentGiftList.due_date}</h4>
-
-                <Link to='/create_gift'>
-                  <button>Add Gift</button>
-                </Link>
-                <Route path='/create_gift' render={() => (
-                  <CreateGiftForm
-                    createGift={this.createGift}
-                    handleChange={this.handleChange}
-                    giftFormData={this.state.giftFormData}
-                  />
-                )} />
-                {/* <Link to={`${this.props.match.url}/create_gift`}>
-                  <button onClick={() => (console.log(`url=${this.props.match.url}, path=${this.props.match.path}`))} >Add Gift</button>
-                </Link>
-                <Route path={`${this.props.match.path}/create_gift`} render={() => (
-                  <CreateGiftForm
-                    createGift={this.createGift}
-                    handleChange={this.handleChange}
-                    giftFormData={this.state.giftFormData}
-                  />
-                )} /> */}
+                <CreateGiftForm
+                  show={this.state.show}
+                  handleClose={this.hideModal}
+                  createGift={this.createGift}
+                  handleChange={this.handleChange}
+                  giftFormData={this.state.giftFormData}
+                  currentGiftList={currentGiftList}
+                />
+                <button type="button" onClick={this.showModal}>Add Gift</button>
                 <Link to={`/update_giftList/${currentGiftList.id}`}><button>Update a Giftlist</button></Link>
                 <button
                   onClick={() => {
@@ -105,9 +116,16 @@ class GiftListDetails extends React.Component {
                     <p>Location: {gift.locatiopn}</p>
                     <p>Proposed Purchase Date:{gift.proposed_purchase_date}</p>
                     {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>}
-                    <Link >
-                      <button>Edit</button>
-                    </Link>
+                    <button type="button" onClick={this.showModalUpdate(gift)}>Update Gift</button>
+                    <UpdateGiftForm
+                      gifts={gifts}
+                      giftId={gift.id}
+                      show={this.state.showUpdate}
+                      handleClose={this.hideModalUpdate}
+                      updateGift={this.updateGift}
+                      handleChange={this.handleChange}
+                      giftFormData={this.state.giftFormData}
+                    />
                     <Link>
                       <button>Delete</button>
                     </Link>
