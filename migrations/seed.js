@@ -1,5 +1,5 @@
 const { User, Gift, GiftList } = require('../models');
-
+const { hashPassword } = require('../services/auth');
 const main = async () => {
   // Delete everything in the database.
   await Gift.destroy({
@@ -8,8 +8,16 @@ const main = async () => {
   await GiftList.destroy({
     where: {}
   });
-
-  const user = await User.findByPk(1);
+  const userObj = {
+    username: "admin",
+    password: "admin"
+  };
+  const { username } = userObj;
+  const password_digest = await hashPassword(userObj.password);
+  const user = await User.create({
+    username,
+    password_digest,
+  });
 
   const gl1 = await GiftList.create({
     "title": "Angies Mock Birthday",
