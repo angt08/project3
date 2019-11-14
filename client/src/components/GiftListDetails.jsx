@@ -90,8 +90,8 @@ class GiftListDetails extends React.Component {
       <div className="main">
         {currentGiftList ?
           <div id="gift-list-details">
-            <h1>{currentGiftList.title}</h1>
             <div id="giftlist">
+              <h2>{currentGiftList.title}</h2>
               <img src={currentGiftList.image_link} alt="giftlistimage" />
               <div>
                 <p>{currentGiftList.description}</p>
@@ -118,25 +118,27 @@ class GiftListDetails extends React.Component {
               {
                 gifts.map(gift => (
                   <div className="gift">
-                    <h2>{gift.item}</h2>
                     <img className="gift-image" src={gift.image_link} alt='noimage' />
-                    <p>{gift.description}</p>
+                    <h2>{gift.item}</h2>
+                    {/* <p>{gift.description}</p>
                     <p>Price: {gift.price}</p>
                     <p>Location: {gift.locatiopn}</p>
                     <p>Proposed Purchase Date:{gift.proposed_purchase_date}</p>
-                    {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>}
-                    <button type="button" onClick={this.showModalUpdate}>Update Gift</button>
-                    <UpdateGiftForm
-                      gifts={gifts}
-                      giftId={gift.id}
-                      show={this.state.showUpdate}
-                      handleClose={this.hideModalUpdate}
-                      updateGift={this.updateGift}
-                      giftFormData={this.state.giftFormData}
-                    />
-                    <button
-                      onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
+                    {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>} */}
+                    <div>
+                      <button type="button" onClick={this.showModalUpdate}>Update Gift</button>
+                      <UpdateGiftForm
+                        gifts={gifts}
+                        giftId={gift.id}
+                        show={this.state.showUpdate}
+                        handleClose={this.hideModalUpdate}
+                        updateGift={this.updateGift}
+                        giftFormData={this.state.giftFormData}
+                      />
+                      <button
+                        onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
                     </button>
+                    </div>
                   </div>
                 ))
               }
