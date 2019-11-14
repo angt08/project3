@@ -94,7 +94,8 @@ class App extends React.Component {
   updateGiftList = async (id, giftlist) => {
     const newGiftLists = await putGiftList(id, giftlist);
     this.setState(prevState => ({
-      giftLists: [...prevState.giftLists, newGiftLists]
+      giftLists: prevState.giftLists.map(giftlist =>
+        giftlist.id === parseInt(id) ? newGiftLists : giftlist)
     }))
     this.props.history.push('../')
   }
