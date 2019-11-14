@@ -32,7 +32,7 @@ export default function CreateGiftListForm(props) {
           onChange={props.handleChange}
         />
         <br />
-        <label htmlFor="image_link">Image_Link</label>
+        <label htmlFor="image_link">Image Link</label>
         <input
           type="text"
           name="image_link"
@@ -41,7 +41,7 @@ export default function CreateGiftListForm(props) {
           onChange={props.handleChange}
         />
         <br />
-        <label htmlFor="due_date">Due_Date</label>
+        <label htmlFor="due_date">Due Date</label>
         <input
           type="date"
           name="due_date"
@@ -52,6 +52,7 @@ export default function CreateGiftListForm(props) {
         <br />
         <button className='submit'>Submit</button>
 
+        
       </form>
     </div>
   )

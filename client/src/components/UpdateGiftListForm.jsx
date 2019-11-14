@@ -56,7 +56,7 @@ export default class UpdateGiftListForm extends Component {
           this.props.updateGiftList(this.props.giftListId, this.state);
         }}>
 
-        <Link to='/'>
+<Link to='/'>
           <button className="back">X</button>
         </Link>
 
@@ -89,7 +89,7 @@ export default class UpdateGiftListForm extends Component {
           <br />
           <label htmlFor="due_date">Due Date</label>
           <input
-            type="text"
+            type="date"
             name="due_date"
             id="due_date"
             value={due_date}
@@ -97,6 +97,8 @@ export default class UpdateGiftListForm extends Component {
           />
           <br />
           <button className='submit'>Submit</button>
+
+          
         </form>
       </div>
     )

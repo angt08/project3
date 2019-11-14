@@ -71,11 +71,9 @@ export default class UpdateGiftForm extends Component {
           e.preventDefault();
           this.props.updateGift(this.props.giftId, this.state);
         }}>
-
-        <Link to='/'>
+          <Link to='/'>
           <button className="back">X</button>
-        </Link>
-
+          </Link>
           
           <label htmlFor="item">Gift</label>
           <input
@@ -117,23 +115,25 @@ export default class UpdateGiftForm extends Component {
             value={location}
             onChange={this.handleChange}
           />
-          <label htmlFor="proposed_purchase_date">proposed_purchase_date</label>
+          <label htmlFor="proposed_purchase_date">ProposedPurchase Date</label>
           <input
-            type="text"
+            type="date"
             name="proposed_purchase_date"
             id="proposed_purchase_date"
             value={proposed_purchase_date}
             onChange={this.handleChange}
           />
-          <label htmlFor="actual_purchase_date">actual_purchase_date</label>
+          <label htmlFor="actual_purchase_date">Actual Purchase Date</label>
           <input
-            type="text"
+            type="date"
             name="actual_purchase_date"
             id="actual_purchase_date"
             value={actual_purchase_date}
             onChange={this.handleChange}
           />
           <button className='update_button' onClick={handleClose}>Update Gift</button>
+
+          
         </form >
       </div >
     )

@@ -38,7 +38,9 @@ export default class LoginForm extends Component {
           onChange={this.handleChange}
         />
         <button className='submit'>Submit</button>
-        <Link to="/register">Register</Link>
+        <Link to="/register"><button className='submit'> 
+          Register</button>
+        </Link>
         <br />
         <p>{this.props.authErrorMessage}</p>
       </form>
