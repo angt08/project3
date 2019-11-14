@@ -25,7 +25,7 @@ export default function Home(props) {
               <h3>{gl.title}</h3>
             </Link>
 
-            <img src={gl.image_link} width="200px" height="200px" />
+            <img className="giftlist-homeImg" src={gl.image_link} width="200px" height="200px" />
 
           </div>
         ))}
