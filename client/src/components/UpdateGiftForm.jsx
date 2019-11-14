@@ -13,6 +13,7 @@ export default class UpdateGiftForm extends Component {
   }
 
   setFormData = () => {
+    console.log(`selectedGift=${this.props.selectedGift}`)
     if (this.props.gifts.length) {
       const {
         item,
@@ -72,9 +73,9 @@ export default class UpdateGiftForm extends Component {
           this.props.updateGift(this.props.giftId, this.state);
         }}>
           <Link to='/'>
-          <button className="back">X</button>
+            <button className="back">X</button>
           </Link>
-          
+
           <label htmlFor="item">Gift</label>
           <input
             type="text"
@@ -133,7 +134,7 @@ export default class UpdateGiftForm extends Component {
           />
           <button className='update_button' onClick={handleClose}>Update Gift</button>
 
-          
+
         </form >
       </div >
     )
