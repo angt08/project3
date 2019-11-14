@@ -1,5 +1,5 @@
-const { User, Gift, GiftList } = require('../models');
-const { hashPassword } = require('../services/auth');
+const { User, Gift, GiftList } = require('./models');
+const { hashPassword } = require('./services/auth');
 const main = async () => {
   // Delete everything in the database.
   await Gift.destroy({
