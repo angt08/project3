@@ -1,9 +1,9 @@
-/* 
+ 
 html,
 body,
 .app {
   height: 100vh;
-  
+
 }
 .action-image{
   width: 60px;
@@ -15,6 +15,7 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   /* border: 1px solid red; */
+}
 
 div{
   margin:auto;
@@ -49,9 +50,6 @@ header {
   background-position-x: 40px;
   background-color: #CB000E;
   margin: 0 auto;
-  /* border-top-left-radius: 10px; */
-  /* border-top-right-radius: 10px; */
-  /* border: 1px solid red; */
 }
 
 .headingTags {
@@ -64,7 +62,7 @@ header {
 .headingTags h1{
   text-align: center;
   font-family: 'Supermercado One', cursive;
-  font-size: 5.5em;
+  font-size: 4.5em;
   color: white;
   text-shadow: 2px 3px 5px rgb(0, 0, 0);
   padding-top: 10px;
@@ -185,15 +183,12 @@ img{
 
 .main {
   flex: 11 auto;
-  height: 75vh;
+  height: 95vh;
   position:relative;
   display: grid;
   background-image: url("gift-8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  
-
-
 }
 
 /*  */
@@ -202,12 +197,13 @@ margin:10px;
 border:solid 1px #CB000E;
 background-color: rgb(243, 250, 252);
 border-radius:20px;
-
 }
 /*  */
 
 #giftlist-home{
-  position:relative;
+  border: 2px solid blue;
+  /* position:relative; */
+  /* top: -135px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom:2%;
