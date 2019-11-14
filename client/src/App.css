@@ -333,7 +333,7 @@ img.action-image{
 }
 
 #gift-list-details{
-  height:700px;
+  height:800px;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
