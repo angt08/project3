@@ -4,6 +4,7 @@ export default function GiftDetails(props) {
   const { show, handleClose, gifts, selectedGift } = props;
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const gift = gifts.find(gift => gift.id == selectedGift);
+
   return (
  <div>
       {

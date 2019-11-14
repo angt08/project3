@@ -12,8 +12,7 @@ export default class UpdateGiftForm extends Component {
     actual_purchase_date: ""
   }
 
-  setFormData = () => {
-    console.log(`selectedGift=${this.props.selectedGift}`)
+  setFormData = (id) => {
     if (this.props.gifts.length) {
       const {
         item,
@@ -25,7 +24,7 @@ export default class UpdateGiftForm extends Component {
         actual_purchase_date,
         ...otherData
       } = this.props.gifts.find(gift => {
-        return gift.id === parseInt(this.props.giftId)
+        return gift.id === id
       })
       this.setState({
         item,
@@ -39,23 +38,18 @@ export default class UpdateGiftForm extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setFormData();
-  }
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value })
-    console.log(this.state);
   }
-
   componentDidUpdate(prevProps) {
-    if (prevProps.gifts !== this.props.gifts) {
-      this.setFormData();
+    if (prevProps.selectedGift !== this.props.selectedGift) {
+      if (this.props.selectedGift > 0)
+        this.setFormData(this.props.selectedGift);
     }
   }
-
   render() {
+
     const { item,
       description,
       image_link,
@@ -65,17 +59,13 @@ export default class UpdateGiftForm extends Component {
       actual_purchase_date } = this.state;
     const { show, handleClose, giftFormData } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
-
     return (
       <div className={showHideClassName}>
         < form className="modal-main" onSubmit={(e) => {
           e.preventDefault();
-          this.props.updateGift(this.props.giftId, this.state);
+          this.props.updateGift(this.props.selectedGift, this.state);
         }}>
-          <Link to='/'>
-            <button className="back">X</button>
-          </Link>
-
+          <button type="button" id="cancel" onClick={handleClose} className="back">X</button>
           <label htmlFor="item">Gift</label>
           <input
             type="text"
