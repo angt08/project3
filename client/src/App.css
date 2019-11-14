@@ -5,7 +5,10 @@ body,
   height: 100vh;
   
 }
+.action-image{
+  width: 60px;
 
+}
 
 body {
   margin: 0 auto;
@@ -22,11 +25,15 @@ a ,h2 ,h3, h4{
   text-decoration: none;
   font-family: 'Reenie Beanie', cursive;
   color:black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 p {
 margin-bottom: 1em;
 font-family: 'Reenie Beanie', cursive;
 text-align:center;
+margin-top: 5px;
+margin-bottom: 5px;
 }
 
 
@@ -153,8 +160,6 @@ header a{
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
-/*                  */
 
 h3{
   text-decoration: none;
@@ -329,7 +334,7 @@ padding-left: 20px;
   padding: 30px;
   align-items: center;
 }
-#giftlist img{
+.giftlist-image{
   height:300px;
   width:300px;
   
