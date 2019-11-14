@@ -1,4 +1,4 @@
-
+/* 
 html,
 body,
 .app {
@@ -15,7 +15,7 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   /* border: 1px solid red; */
-}
+
 div{
   margin:auto;
   text-align: center;
@@ -28,6 +28,7 @@ a ,h2 ,h3, h4{
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 p {
 margin-bottom: 1em;
 font-family: 'Reenie Beanie', cursive;
@@ -38,7 +39,7 @@ margin-bottom: 5px;
 
 
 header {
-  height:250px;
+  height:35vh;
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   background-image: url('https://media.giphy.com/media/21QQJMEsZm9fGKUyWF/giphy.gif');
@@ -48,6 +49,8 @@ header {
   background-position-x: 40px;
   background-color: #CB000E;
   margin: 0 auto;
+  /* border-top-left-radius: 10px; */
+  /* border-top-right-radius: 10px; */
   /* border: 1px solid red; */
 }
 
@@ -94,6 +97,11 @@ header {
   position: relative;
   /* top: 70px; */
   left: 70px;
+  background-image: url(./login.png);
+}
+
+.accountLogo:hover{
+  width: 40%;
 }
 
 header a{
@@ -177,6 +185,7 @@ img{
 
 .main {
   flex: 11 auto;
+  height: 75vh;
   position:relative;
   display: grid;
   background-image: url("gift-8.jpg");
@@ -186,11 +195,6 @@ img{
 
 
 }
-  /* flex: 1 1 auto; */
-  /* position:relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
-
 
 /*  */
 #giftlist-single{
@@ -215,7 +219,6 @@ border-radius:20px;
   color:white;
 background-color:  #CB000E;
 }
-
 
 form input{
   height: 40px;
@@ -359,23 +362,38 @@ padding-left: 20px;
   margin-left: 30px;
 }
 
+.footerBlock{
+  /* border: 1px solid purple; */
+}
 
 footer {
-  flex: 0 0 auto;
-  font-size:16px;
-  width:100%;
-  height:100px;
-  padding-top: 20px;
-  display:inline-block;
-  background-color: lavenderblush;
-  text-align: center;
+  background-color: #CB000E;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom-left-radius: 10px; */
+  /* border-bottom-right-radius: 10px; */
 }
 
-.image-footer{
-  width: 40px;
+.footerBlock{
+  width: 150px;
   height: 40px;
+  font-family: 'Bad Script', cursive;
+  color: white;
+  /* border: 1px solid blue;  */
 }
 
+.footerImg{
+  width: 36px;
+  height: 40px;
+  background-image: url('../src/github.png');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  /* padding-right: 10px; */
+  /* border: 1px solid black; */
+}
 
 .modal {
   position: fixed;

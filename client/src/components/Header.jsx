@@ -10,7 +10,7 @@ export default function Header(props) {
   return (
     <header>
       <div className="headingTags" >
-      <Link to="/"><h1>GiftBox</h1></Link>
+        <Link to="/"><h1>GiftBox</h1></Link>
         {
           props.currentUser ?
             <h2>Welcome, {username}!</h2>
@@ -18,7 +18,7 @@ export default function Header(props) {
             <></>
         }
       </div>
-      
+
       <nav id="logOut">
         {
           props.currentUser ?
