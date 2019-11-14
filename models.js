@@ -1,14 +1,34 @@
 // inside models.js
 const { Sequelize } = require('sequelize');
+// for heroku here
 
+let sequelize;
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    define: {
+      underscored: true
+    }
+  });
+} else {
+  sequelize = new Sequelize({
+    database: 'giftbox_db',
+    dialect: 'postgres',
+    define: {
+      underscored: true,
+    },
+  });
+}
+
+//
 // Create a variable that is a connection to the database.
-const sequelize = new Sequelize({
-  database: 'giftbox_db',
-  dialect: 'postgres',
-  define: {
-    underscored: true
-  }
-});
+// const sequelize = new Sequelize({
+//   database: 'giftbox_db',
+//   dialect: 'postgres',
+//   define: {
+//     underscored: true
+//   }
+// });
 
 class User extends Sequelize.Model { }
 
