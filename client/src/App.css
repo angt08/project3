@@ -436,14 +436,54 @@ footer {
   display: none;
 }
 
+
+
+
 @media only screen 
   and (max-width: 500px){
    
-    #main { 
+    #main{ 
+      overflow-y:hidden;
       background-size: 100% 100%;
       justify-content: flex-start;
     }
+
+
+/*  angie Queries between these lines */
+  
+  #giftlist-home{
+   display:grid;
+   grid-template-columns: 1fr ;
+  
   }
+  header{
+  width:600px;
+  height:150px;
+  display:flex;
+  flex-direction:row;
+  }
+
+  .accountLogo{
+  margin-right:190px;
+  width:80px;
+  }
+
+  .headingTags h1{
+  font-size:40px;
+  margin-left:120%;
+
+  }
+  .headingTags h2{
+    font-size:16px;
+    margin-left:150%;
+  }
+
+  form{
+    margin:auto;
+  }
+
+  
+/* angie queries  between these line */
 
   a.tooltip span {
     position: absolute;
@@ -469,5 +509,5 @@ a.tooltip:hover span {
 }
 #gift-button-group{
   display:flex;
-
+}
 }
