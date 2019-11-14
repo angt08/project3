@@ -57,7 +57,7 @@ export default function CreateGiftForm(props) {
         />
         <label htmlFor="proposed_purchase_date">Proposed Purchase Date</label>
         <input
-          type="text"
+          type="date"
           name="proposed_purchase_date"
           id="proposed_purchase_date"
           value={giftFormData.proposed_purchase_date}
@@ -65,7 +65,7 @@ export default function CreateGiftForm(props) {
         />
         <label htmlFor="actual_purchase_date">Actual Purchase Date</label>
         <input
-          type="text"
+          type="date"
           name="actual_purchase_date"
           id="actual_purchase_date"
           value={giftFormData.actual_purchase_date}
