@@ -49,13 +49,13 @@ margin-bottom: 5px;
 
 
 header {
-  height:35vh;
+  height:28vh;
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   background-image: url('https://media.giphy.com/media/21QQJMEsZm9fGKUyWF/giphy.gif');
   background-size: 18%;
   background-repeat: no-repeat;
-  background-position-y: 15px;
+  background-position-y: -10px;
   background-position-x: 40px;
   background-color: #CB000E;
   margin: 0 auto;
@@ -117,8 +117,12 @@ header a{
 }
 
 /* add  button */
+#add-giftlist-button{
+  height: 20px;
+}
+
 .cssCircle {
-  margin-top:5%;
+  margin-top: 2%;
   margin-bottom: 2%;
   border-radius: 999px;
   width: 50px;
@@ -193,10 +197,7 @@ img{
 }
 
 .main {
-  flex: 11 auto;
   height: 95vh;
-  position:relative;
-  display: grid;
   background-image: url("gift-8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -204,29 +205,30 @@ img{
 
 /*  */
 #giftlist-single{
+/* perspective: 100px; */
+width: 400px;
 margin:10px;
-border:solid 1px #CB000E;
 background-color: rgb(243, 250, 252);
 border-radius:20px;
+border:solid 1px #CB000E;
 }
 /*  */
 
 #giftlist-home{
   /* border: 2px solid blue; */
-  /* position:relative; */
-  /* top: -135px; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom:2%;
-  width:80%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+  /* overflow-x: auto; */
   opacity: .9;
 }
-
+/* 
 .giftlist-homeImg{
   width: 70%;
   height: 300px;
   object-fit: cover;
-}
+  border: 1px solid red;
+} */
 
 #giftlist-single:hover{
   color:white;
@@ -390,11 +392,11 @@ margin-top: 20px;
 }
 
 .gift{
-  height: 250px;
+  height: 190px;
   display: flex;
   justify-content: center;
-  padding-top: 20px;
-  padding-left: 40px;
+  /* padding-top: 15px; */
+  padding-left: 20px;
   /* border: 1px solid blue; */
 }
 

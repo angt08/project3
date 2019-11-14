@@ -8,7 +8,7 @@ export default function Home(props) {
   }
   return (
     <main className="main">
-      <Link to="/create_giftLists">
+      <Link id="add-giftlist-button" to="/create_giftLists">
 
         <div style={divStyle} class="cssCircle plusSign tooltip">
           <span class="tooltiptext">Add a Giftlist</span>
