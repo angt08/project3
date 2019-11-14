@@ -106,7 +106,6 @@ class GiftListDetails extends React.Component {
             <div id="giftlist">
               <h2>{currentGiftList.title}</h2>
               <img className="giftlist-image" src={currentGiftList.image_link} alt="giftlistimage" />
-              <div>
                 <p>{currentGiftList.description}</p>
                 <h4>Due Date: {moment(new Date(currentGiftList.due_date)).format("MM/DD/YYYY")}</h4>
                 <CreateGiftForm
@@ -116,7 +115,8 @@ class GiftListDetails extends React.Component {
                   handleChange={this.handleChange}
                   giftFormData={this.state.giftFormData}
                   currentGiftList={currentGiftList}
-                />
+              />
+              <div className="action-imageContainer">
                 <img className="action-image" src={giftIcon} alt="add" onClick={this.showModal} />
                 <Link to={`/update_giftList/${currentGiftList.id}`}>
                   <img className="action-image" src={editIcon} alt="edit" />
@@ -126,11 +126,13 @@ class GiftListDetails extends React.Component {
                 }} />
               </div>
             </div>
-            <div id="gifts">
+            
+            <div id="giftsContainer">
               {
                 gifts.map(gift => (
                   <div className="gift">
                     <img className="gift-image" src={gift.image_link} alt='noimage' />
+                  <div className="giftDetails">
                     <GiftDetails
                       gifts={gifts}
                       selectedGift={this.state.selectedGift}
@@ -154,7 +156,8 @@ class GiftListDetails extends React.Component {
                         onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
                     </button>
                     </div>
-                  </div>
+                    </div>
+                   </div> 
                 ))
               }
             </div>
