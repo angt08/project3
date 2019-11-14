@@ -7,6 +7,7 @@ import giftIcon from '../gift.png';
 import editIcon from '../edit.png';
 import deleteIcon from '../delete.png';
 import moment from 'moment'
+import GiftDetails from './GiftDetails';
 
 class GiftListDetails extends React.Component {
   state = {
@@ -21,7 +22,9 @@ class GiftListDetails extends React.Component {
       actual_purchase_date: ""
     },
     show: false,
-    showUpdate: false
+    showUpdate: false,
+    showGiftDet: false,
+    selectedGift: 0
   }
   showModal = () => {
     this.setState({ show: true });
@@ -30,13 +33,19 @@ class GiftListDetails extends React.Component {
   hideModal = () => {
     this.setState({ show: false });
   };
-  showModalUpdate = () => {
-
-    this.setState({ showUpdate: true });
+  showModalUpdate = (id) => {
+    this.setState({ showUpdate: true, selectedGift: id });
   };
 
   hideModalUpdate = () => {
-    this.setState({ showUpdate: false });
+    this.setState({ showUpdate: false, selectedGift: 0 });
+  };
+  showGiftDetails = (id) => {
+    this.setState({ showGiftDet: true, selectedGift: id });
+  };
+
+  hideGiftDetails = () => {
+    this.setState({ showGiftDet: false, selectedGift: 0 });
   };
   async componentDidMount() {
     await this.getGifts();
@@ -109,42 +118,33 @@ class GiftListDetails extends React.Component {
                   currentGiftList={currentGiftList}
                 />
                 <img className="action-image" src={giftIcon} alt="add" onClick={this.showModal} />
-                {/* <button type="button" onClick={this.showModal}>Add Gift</button> */}
                 <Link to={`/update_giftList/${currentGiftList.id}`}>
-                  {/* <button>Update a Giftlist</button> */}
                   <img className="action-image" src={editIcon} alt="edit" />
                 </Link>
                 <img className="action-image" src={deleteIcon} alt="delete" onClick={() => {
                   this.props.deleteGiftList(currentGiftList.id)
                 }} />
-                {/* <button
-                  onClick={() => {
-                    this.props.deleteGiftList(currentGiftList.id)
-                  }}>
-                  Delete Gift List
-                  </button> */}
               </div>
             </div>
             <div id="gifts">
               {
                 gifts.map(gift => (
                   <div className="gift">
-                    <a href="#" class="tooltip">
-                      <img className="gift-image" src={gift.image_link} alt='noimage' />
-                      <h2>{gift.item}</h2>
-                      <span>
-                        <p>{gift.description}</p>
-                        <p>Price: {gift.price}</p>
-                        <p>Location: {gift.locatiopn}</p>
-                        <p>Proposed Purchase Date: {moment(new Date(gift.proposed_purchase_date)).format("MM/DD/YYYY")}</p>
-                        {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>}
-                      </span>
-                    </a>
-                    <div>
-                      <button type="button" onClick={this.showModalUpdate}>Update Gift</button>
+                    <img className="gift-image" src={gift.image_link} alt='noimage' />
+                    <GiftDetails
+                      gifts={gifts}
+                      selectedGift={this.state.selectedGift}
+                      show={this.state.showGiftDet}
+                      handleClose={this.hideGiftDetails}
+                    />
+                    <h2>{gift.item}</h2>
+                    <div id="gift-button-group">
+                      <button id={gift.id} type="button" onClick={() => this.showModalUpdate(gift.id)}>Update Gift</button>
+                      <button id={gift.id} type="button" onClick={() => this.showGiftDetails(gift.id)}>View Gift</button>
                       <UpdateGiftForm
                         gifts={gifts}
                         giftId={gift.id}
+                        selectedGift={this.state.selectedGift}
                         show={this.state.showUpdate}
                         handleClose={this.hideModalUpdate}
                         updateGift={this.updateGift}
