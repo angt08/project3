@@ -149,16 +149,18 @@ header a{
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 130px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
+  font-size: 20px;
+  font-family: Helvetica, sans-serif, cursive;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  left: 55px;
+  /* z-index: 1; */
 }
 
 .tooltip:hover .tooltiptext {
@@ -199,7 +201,7 @@ border-radius:20px;
 /*  */
 
 #giftlist-home{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   /* position:relative; */
   /* top: -135px; */
   display: grid;
@@ -212,6 +214,7 @@ border-radius:20px;
 #giftlist-single:hover{
   color:white;
 background-color:  #CB000E;
+/* border: 1px solid blue; */
 }
 
 form input{
@@ -321,7 +324,6 @@ background: red;
   width: 90vw;
   margin-top: 30px;
   margin-bottom: 30px;
-
 }
   
 
@@ -342,8 +344,8 @@ padding-left: 20px;
 .giftlist-image{
   height:300px;
   width:300px;
-  
 }
+
 .gift{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -351,6 +353,7 @@ padding-left: 20px;
   margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
+  /* border: 1px solid blue; */
 }
 .gift h2{
   margin-right:20px;
