@@ -12,6 +12,7 @@ import GiftDetails from './GiftDetails';
 class GiftListDetails extends React.Component {
   state = {
     gifts: [],
+    updateGifts: [],
     giftFormData: {
       item: "",
       description: "",
@@ -38,14 +39,14 @@ class GiftListDetails extends React.Component {
   };
 
   hideModalUpdate = () => {
-    this.setState({ showUpdate: false, selectedGift: 0 });
+    this.setState({ showUpdate: false });
   };
   showGiftDetails = (id) => {
     this.setState({ showGiftDet: true, selectedGift: id });
   };
 
   hideGiftDetails = () => {
-    this.setState({ showGiftDet: false, selectedGift: 0 });
+    this.setState({ showGiftDet: false });
   };
   async componentDidMount() {
     await this.getGifts();
@@ -107,7 +108,6 @@ class GiftListDetails extends React.Component {
               <img className="giftlist-image" src={currentGiftList.image_link} alt="giftlistimage" />
               <div>
                 <p>{currentGiftList.description}</p>
-
                 <h4>Due Date: {moment(new Date(currentGiftList.due_date)).format("MM/DD/YYYY")}</h4>
                 <CreateGiftForm
                   show={this.state.show}
@@ -139,16 +139,16 @@ class GiftListDetails extends React.Component {
                     />
                     <h2>{gift.item}</h2>
                     <div id="gift-button-group">
-                      <button id={gift.id} type="button" onClick={() => this.showModalUpdate(gift.id)}>Update Gift</button>
-                      <button id={gift.id} type="button" onClick={() => this.showGiftDetails(gift.id)}>View Gift</button>
+                      <button type="button" onClick={() => this.showModalUpdate(gift.id)}>Update Gift</button>
+                      <button type="button" onClick={() => this.showGiftDetails(gift.id)}>View Gift</button>
                       <UpdateGiftForm
-                        gifts={gifts}
+                        gifts={this.state.gifts}
                         giftId={gift.id}
-                        selectedGift={this.state.selectedGift}
                         show={this.state.showUpdate}
                         handleClose={this.hideModalUpdate}
                         updateGift={this.updateGift}
                         giftFormData={this.state.giftFormData}
+                        selectedGift={this.state.selectedGift}
                       />
                       <button
                         onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
