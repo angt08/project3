@@ -129,13 +129,17 @@ class GiftListDetails extends React.Component {
               {
                 gifts.map(gift => (
                   <div className="gift">
-                    <img className="gift-image" src={gift.image_link} alt='noimage' />
-                    <h2>{gift.item}</h2>
-                    {/* <p>{gift.description}</p>
-                    <p>Price: {gift.price}</p>
-                    <p>Location: {gift.locatiopn}</p>
-                    <p>Proposed Purchase Date:{gift.proposed_purchase_date}</p>
-                    {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>} */}
+                    <a href="#" class="tooltip">
+                      <img className="gift-image" src={gift.image_link} alt='noimage' />
+                      <h2>{gift.item}</h2>
+                      <span>
+                        <p>{gift.description}</p>
+                        <p>Price: {gift.price}</p>
+                        <p>Location: {gift.locatiopn}</p>
+                        <p>Proposed Purchase Date: {moment(new Date(gift.proposed_purchase_date)).format("MM/DD/YYYY")}</p>
+                        {gift.actual_purchase_date ? <p>Purchased: Yes</p> : <p>Purchased: No</p>}
+                      </span>
+                    </a>
                     <div>
                       <button type="button" onClick={this.showModalUpdate}>Update Gift</button>
                       <UpdateGiftForm
