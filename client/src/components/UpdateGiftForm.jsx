@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class UpdateGiftForm extends Component {
   state = {
@@ -70,6 +71,12 @@ export default class UpdateGiftForm extends Component {
           e.preventDefault();
           this.props.updateGift(this.props.giftId, this.state);
         }}>
+
+        <Link to='/'>
+          <button className="back">X</button>
+        </Link>
+
+          
           <label htmlFor="item">Gift</label>
           <input
             type="text"
@@ -126,7 +133,7 @@ export default class UpdateGiftForm extends Component {
             value={actual_purchase_date}
             onChange={this.handleChange}
           />
-          <button onClick={handleClose}>Update Gift</button>
+          <button className='update_button' onClick={handleClose}>Update Gift</button>
         </form >
       </div >
     )

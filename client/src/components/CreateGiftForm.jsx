@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CreateGiftForm(props) {
   const { show, handleClose, giftFormData, currentGiftList, handleChange } = props;
@@ -9,6 +10,11 @@ export default function CreateGiftForm(props) {
         e.preventDefault();
         props.createGift(currentGiftList.id, giftFormData);
       }}>
+
+       <Link to='/'>
+          <button className="back">X</button>
+      </Link>
+
         <label htmlFor="item">Gift</label>
         <input
           type="text"
@@ -49,7 +55,7 @@ export default function CreateGiftForm(props) {
           value={giftFormData.location}
           onChange={handleChange}
         />
-        <label htmlFor="proposed_purchase_date">proposed_purchase_date</label>
+        <label htmlFor="proposed_purchase_date">Proposed Purchase Date</label>
         <input
           type="text"
           name="proposed_purchase_date"
@@ -57,7 +63,7 @@ export default function CreateGiftForm(props) {
           value={giftFormData.proposed_purchase_date}
           onChange={handleChange}
         />
-        <label htmlFor="actual_purchase_date">actual_purchase_date</label>
+        <label htmlFor="actual_purchase_date">Actual Purchase Date</label>
         <input
           type="text"
           name="actual_purchase_date"
@@ -65,7 +71,7 @@ export default function CreateGiftForm(props) {
           value={giftFormData.actual_purchase_date}
           onChange={handleChange}
         />
-        <button onClick={handleClose}>Add Gift</button>
+        <button className='gift_button' onClick={handleClose}>Add Gift</button>
       </form >
     </div >
   )

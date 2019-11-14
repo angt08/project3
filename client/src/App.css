@@ -2,11 +2,12 @@
 html,
 body,
 .app {
-  height: 100vh; 
+  height: 100vh;
+  
+}
+.action-image{
+  width: 60px;
 
-} */
-.app{
-margin: 0 auto;
 }
 
 body {
@@ -14,17 +15,26 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   /* border: 1px solid red; */
-}
 
 div{
   margin:auto;
   text-align: center;
- 
+}
+a ,h2 ,h3, h4{
+  font-size:1.8em;
+  text-decoration: none;
+  font-family: 'Reenie Beanie', cursive;
+  color:black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 p {
-/* margin-bottom: 1em; */
+margin-bottom: 1em;
+font-family: 'Reenie Beanie', cursive;
 text-align:center;
+margin-top: 5px;
+margin-bottom: 5px;
 }
 
 
@@ -159,12 +169,14 @@ header a{
   visibility: visible;
 }
 
-/*                  */
-
 h3{
   text-decoration: none;
-  color:linear-gradient(to right, #CB0B0C, #FF5349);
- 
+  font-family: 'Reenie Beanie', cursive;
+  font-size:1.8em;
+}
+
+h4{
+font-family: 'Reenie Beanie', cursive;
 }
 img{
   object-fit: cover;
@@ -179,9 +191,9 @@ img{
   background-image: url("gift-8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* border-top: 10px solid rgb(226, 226, 226);
-  border-radius: 10px; */
-  /* height: 90vh; */
+  
+
+
 }
 
 /*  */
@@ -210,7 +222,7 @@ background-color:  #CB000E;
 
 form input{
   height: 40px;
-  width: 50%;
+  width: 70%;
   margin: 10px;
 }
 form button{
@@ -223,8 +235,7 @@ form button{
 } */
 
 form {
-  
-    width: 65%;
+    width: 50%;
     position: fixed;
     left: 50%;
     margin-left: -26%;
@@ -235,7 +246,7 @@ form {
     padding-top: 2%;
     box-sizing: border-box;
     background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center fixed;
-    background-size: 78%;
+    background-size: 55%;
     height: auto;
     max-width: 100%;
     max-height: 100%;
@@ -245,6 +256,11 @@ button.back{
   background: red;
   border: 2px solid black;
   width: 30px;
+  display: flex;
+  margin-left: 540px;
+}
+button.back:hover{
+  background: whitesmoke;
 }
 
 label{
@@ -261,10 +277,11 @@ input{
 }
 input:hover{
   transition: background-color 0.8 ease;
-  background-color:rgb(199, 198, 198);
+  background: linear-gradient(to right, #CB0B0C, #FF5349);
+  opacity: 0.9;
 }
 
-button.submit{
+button.submit, button.update_button, button.gift_button{
   position: relative;
   margin: 0 auto;
   margin-top: 10px;
@@ -272,11 +289,12 @@ font-size: 16px;
 border: 1px solid black;
 border-radius: 16px;
 width: 120px;
-background:#fffdd0;
+color:whitesmoke;
+background: linear-gradient(to right, #CB0B0C, #FF5349);
 }
 
 button.submit:hover{
-background:linear-gradient(to left, rgb(191, 249, 242),whitesmoke)
+background: red;
 }
 
 #copyright{
@@ -285,34 +303,63 @@ background:linear-gradient(to left, rgb(191, 249, 242),whitesmoke)
 }
 
 .gift-image{
-  width: 100px;
+  width: 150px;
   height: 100px;
+  margin-right: 20px;
 }
+
 #gift-list-details{
-  height:1500px;
-  display: flex;
-  flex-direction: column;
+  height:700px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: url("giftbox.jpg");
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90vw;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
+  
+
 #gift-list-details div{
 padding-left: 20px;
 }
 #gift-list-details h1{
   text-align: center;
+
 }
 #giftlist{
   display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 30px;
+  align-items: center;
+}
+.giftlist-image{
+  height:300px;
+  width:300px;
+  
 }
 .gift{
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-  width: 300px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* width: 300px; */
   margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
 }
+.gift h2{
+  margin-right:20px;
+}
+.gift button{
+  margin-right:10px;
+}
 #gifts {
   display: flex;
+  flex-direction: column;
+  margin-left: 30px;
 }
 
 .footerBlock{
@@ -364,12 +411,15 @@ footer {
   align-items: center;
   text-align: center;
   position:fixed;
-  background: white;
   width: 50%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  background:url('https://image.freepik.com/free-vector/gift-concept-illustration_114360-619.jpg') no-repeat center;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .display-block {
