@@ -1,13 +1,12 @@
-/* 
+
 html,
 body,
 .app {
-  height: 100vh;
+  /* height: 100vh; */
   
 }
 .action-image{
   width: 60px;
-
 }
 
 body {
@@ -15,7 +14,7 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   /* border: 1px solid red; */
-
+}
 div{
   margin:auto;
   text-align: center;
@@ -437,3 +436,26 @@ footer {
       justify-content: flex-start;
     }
   }
+
+  a.tooltip span {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 250px; 
+    border: #000 1px solid;
+    background: #F8F8F8;
+    padding: 10px;
+    z-index: 1000000;
+    display: inline;
+    opacity: 0;
+    transition: 750ms all;
+    text-decoration: none;
+}
+a.tooltip:hover span {
+    outline: none;
+    text-decoration: none;
+    font-size: 70%;
+    color: #000;
+
+    opacity: 1;
+}
