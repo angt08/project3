@@ -8,7 +8,7 @@ export default function Home(props) {
   }
   return (
     <main className="main">
-      <Link to="/create_giftLists">
+      <Link id="add-giftlist-button" to="/create_giftLists">
 
         <div style={divStyle} class="cssCircle plusSign tooltip">
           <span class="tooltiptext">Add a Giftlist</span>
@@ -25,7 +25,7 @@ export default function Home(props) {
               <h3>{gl.title}</h3>
             </Link>
 
-            <img src={gl.image_link} width="200px" height="200px" />
+            <img className="giftlist-homeImg" src={gl.image_link} width="200px" height="200px" />
 
           </div>
         ))}

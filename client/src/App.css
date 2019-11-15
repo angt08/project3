@@ -1,11 +1,24 @@
+ 
 html,
 body,
 .app {
-  /* height: 100vh; */
-  
+  height: 100vh;
 }
+
+.action-imageContainer{
+  width: 40%;
+  height: 60px;
+  display: flex;
+  text-align: center;
+  align-items: baseline;
+  position: relative;
+  top: -10px;
+}
+
 .action-image{
-  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  /* z-index: -1; */
 }
 
 body {
@@ -37,19 +50,16 @@ margin-bottom: 5px;
 
 
 header {
-  height:35vh;
+  height:28vh;
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   background-image: url('https://media.giphy.com/media/21QQJMEsZm9fGKUyWF/giphy.gif');
   background-size: 18%;
   background-repeat: no-repeat;
-  background-position-y: 15px;
+  background-position-y: -10px;
   background-position-x: 40px;
   background-color: #CB000E;
   margin: 0 auto;
-  /* border-top-left-radius: 10px; */
-  /* border-top-right-radius: 10px; */
-  /* border: 1px solid red; */
 }
 
 .headingTags {
@@ -62,10 +72,10 @@ header {
 .headingTags h1{
   text-align: center;
   font-family: 'Supermercado One', cursive;
-  font-size: 4.8em;
+  font-size: 300%;
   color: white;
   text-shadow: 2px 3px 5px rgb(0, 0, 0);
-  padding-top: 10px;
+  padding-top: 2px;
   margin: 20px;
   /* border: 1px solid white; */
   }
@@ -108,8 +118,12 @@ header a{
 }
 
 /* add  button */
+#add-giftlist-button{
+  height: 20px;
+}
+
 .cssCircle {
-  margin-top:5%;
+  margin-top: 2%;
   margin-bottom: 2%;
   border-radius: 999px;
   width: 50px;
@@ -151,16 +165,18 @@ header a{
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 130px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
+  font-size: 20px;
+  font-family: Helvetica, sans-serif, cursive;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  left: 55px;
+  /* z-index: 1; */
 }
 
 .tooltip:hover .tooltiptext {
@@ -182,40 +198,43 @@ img{
 }
 
 .main {
-  flex: 11 auto;
-  height: 75vh;
-  position:relative;
-  display: grid;
+  height: 95vh;
   background-image: url("gift-8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  
-
-
 }
 
 /*  */
 #giftlist-single{
+/* perspective: 100px; */
+width: 400px;
 margin:10px;
-border:solid 1px #CB000E;
 background-color: rgb(243, 250, 252);
 border-radius:20px;
-
+border:solid 1px #CB000E;
 }
 /*  */
 
 #giftlist-home{
-  position:relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom:2%;
-  width:80%;
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+  /* overflow-x: auto; */
   opacity: .9;
 }
+/* 
+.giftlist-homeImg{
+  width: 70%;
+  height: 300px;
+  object-fit: cover;
+  border: 1px solid red;
+} */
 
 #giftlist-single:hover{
   color:white;
 background-color:  #CB000E;
+/* border: 1px solid blue; */
 }
 
 form input{
@@ -313,65 +332,104 @@ background: red;
 img.action-image{
   cursor: pointer;
 }
-.gift-image{
-  width: 150px;
-  height: 100px;
-  margin-right: 20px;
-}
 
 #gift-list-details{
-  height:700px;
+  height:800px;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-image: url("giftbox.jpg");
   border-radius: 10px;
   background-repeat: no-repeat;
-  background-size: cover;
-  width: 90vw;
+  background-size: 99%;
+  background-position-x: center;
   margin-top: 30px;
   margin-bottom: 30px;
+  padding-left: 20px;
+  margin-top: 30px;
+  /* border: 1px solid blue; */
 }
 
-#gift-list-details div{
-padding-left: 20px;
-margin-top: 20%;
-}
 #gift-list-details h1{
   text-align: center;
-
 }
+
 #giftlist{
+  height: 63vh;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
-  padding: 30px;
   align-items: center;
+  object-fit: contain;
+  margin-top: 190px;
+  /* border: 1px solid red; */
 }
+
+#giftlist h2{
+margin-top: 20px;
+}
+
+#giftlist p{
+  margin-top: 20px;
+  font-size: 25px;
+}
+
 .giftlist-image{
-  height:300px;
-  width:300px;
+  margin-top: 15px;
+  width: 60%;
+  height: 300px;
+  /* object-fit: cover; */
   border: 6px solid rgb(184, 183, 183);
 }
-.gift{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* width: 300px; */
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-.gift h2{
-  margin-right:20px;
-}
 
-#gifts {
+#giftsContainer {
   display: flex;
-  flex-direction: column;
-  margin-left: 30px;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 95%;
+  height: 500px;
+  /* border: 1px solid purple; */
+  margin-top: 210px;
 }
 
-.footerBlock{
-  /* border: 1px solid purple; */
+.gift{
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  /* padding-top: 15px; */
+  padding-left: 20px;
+  /* border: 1px solid blue; */
+}
+
+.giftDetails{
+  /* border: 1px solid pink; */
+  height: 200px;
+}
+
+.threeButtons{
+  height: 30px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+font-size: 16px;
+border: 1px solid black;
+border-radius: 16px;
+width: 120px;
+color:whitesmoke;
+background: linear-gradient(to right, #CB0B0C, #FF5349);
+}
+
+.gift-image{
+  width: 30%;
+  height: 150px;
+  margin-top: 30px;
+}
+
+#gift-button-group{
+  display:flex;
+  justify-content: center;
 }
 
 footer {
@@ -403,11 +461,12 @@ footer {
 
 .modal {
   position: absolute;
-  top: 0;
-  left: 50%;
+  top: 70vh;
+  left: 65%;
   width: 30%;
-  height: 40%;
+  margin-bottom: 30px;
   background: white;
+  font-size: 1.5em;
 }
 
 .modal-main {
@@ -454,8 +513,8 @@ footer {
   #giftlist-home{
    display:grid;
    grid-template-columns: 1fr ;
-  
   }
+  
   header{
   width:600px;
   height:150px;
@@ -471,8 +530,8 @@ footer {
   .headingTags h1{
   font-size:40px;
   margin-left:120%;
-
   }
+  
   .headingTags h2{
     font-size:16px;
     margin-left:150%;
@@ -482,7 +541,7 @@ footer {
     margin:auto;
   }
 
-  
+}
 /* angie queries  between these line */
 
   a.tooltip span {
@@ -498,16 +557,12 @@ footer {
     opacity: 0;
     transition: 750ms all;
     text-decoration: none;
-    
 }
-a.tooltip:hover span {
+  
+a.tooltip:hover span{
     outline: none;
     text-decoration: none;
     font-size: 70%;
     color: #000;
     opacity: 1;
-}
-#gift-button-group{
-  display:flex;
-}
 }

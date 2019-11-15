@@ -6,11 +6,11 @@ export default function GiftDetails(props) {
   const gift = gifts.find(gift => gift.id == selectedGift);
 
   return (
-    <  >
+ <div>
       {
         gift ?
           <div className={showHideClassName}>
-            < p > {gift.item}</p >
+            <h3> {gift.item}</h3>
             <p>{gift.description}</p>
             <p>Price: {gift.price}</p>
             <p>Location: {gift.locatiopn}</p>
@@ -20,6 +20,6 @@ export default function GiftDetails(props) {
           </div >
           : <></>
       }
-    </ >
+</div>
   )
 }
