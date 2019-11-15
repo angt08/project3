@@ -141,8 +141,8 @@ class GiftListDetails extends React.Component {
                     />
                     <h2>{gift.item}</h2>
                     <div id="gift-button-group">
-                      <button type="button" onClick={() => this.showModalUpdate(gift.id)}>Update Gift</button>
-                      <button type="button" onClick={() => this.showGiftDetails(gift.id)}>View Gift</button>
+                      <button className ="threeButtons" type="button" onClick={() => this.showModalUpdate(gift.id)}>Update Gift</button>
+                      <button className ="threeButtons" type="button" onClick={() => this.showGiftDetails(gift.id)}>View Gift</button>
                       <UpdateGiftForm
                         gifts={this.state.gifts}
                         giftId={gift.id}
@@ -152,7 +152,7 @@ class GiftListDetails extends React.Component {
                         giftFormData={this.state.giftFormData}
                         selectedGift={this.state.selectedGift}
                       />
-                      <button
+                      <button className ="threeButtons"
                         onClick={() => { this.deleteGiftL(gift.id) }}>Delete Gift
                     </button>
                     </div>

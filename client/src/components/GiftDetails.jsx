@@ -10,7 +10,7 @@ export default function GiftDetails(props) {
       {
         gift ?
           <div className={showHideClassName}>
-            < p > {gift.item}</p >
+            <h3> {gift.item}</h3>
             <p>{gift.description}</p>
             <p>Price: {gift.price}</p>
             <p>Location: {gift.locatiopn}</p>
