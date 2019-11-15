@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-  baseURL: "http://localhost:3001"
+  baseURL: "https://fathomless-lowlands-49425.herokuapp.com"
 })
 
 // ============== Auth ================
