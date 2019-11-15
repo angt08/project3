@@ -1,6 +1,8 @@
 const express = require('express');
 const PORT = process.env.PORT || 3001;
-const userRouter = require('./routes/userRouter.js')
+const giftlistRouter = require('./routes/giftListRouter')
+const GiftsRouter = require('./routes/GiftsRouter')
+const userRouter = require('./routes/userRouter')
 
 const cors = require('cors')
 const bodyParser = require('body-parser');
@@ -21,7 +23,13 @@ app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 
+// Routers handler
+
+app.use('/giftlists', giftlistRouter);
+app.use('/giftlists/:giftListId/gifts', GiftsRouter);
+app.use('/users/:userId/giftlists/', giftlistRouter);
+
+
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
-
